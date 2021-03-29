@@ -15,14 +15,15 @@
 
 .header__home-link {
   color: white;
-  margin-right: 54px;
-  border-bottom: 3px solid white;
+  margin-right: 40px;
+  border-bottom: 2px solid white;
   padding-bottom: 23px;
 }
 .header__sign-in {
   color: white;
   border: 1px solid white;
-  border-radius: 30%;
+  border-radius: 20px;
   padding: 12px 50px;
   width: 176px;
+  margin: 0;
 }

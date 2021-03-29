@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Template from './Template';
 import Header from './components/Header/Header';
+import SearchForm from './components/SearchForm/SearchForm';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <SearchForm />
+    <Template />
   </React.StrictMode>,
   document.getElementById('root')
 );

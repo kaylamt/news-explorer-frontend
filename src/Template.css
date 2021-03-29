@@ -1,28 +1,28 @@
-.header {
-  margin: 0;
-  max-width: 1800px;
-  background-color: black;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-}
-
-.header__container {
+.about {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 104px 26px 104px;
 }
 
-.header__home-link {
-  color: white;
-  margin-right: 54px;
-  border-bottom: 3px solid white;
-  padding-bottom: 23px;
+.about__author-image {
+  margin: 80px 56px 80px 104px;
 }
-.header__sign-in {
-  color: white;
-  border: 1px solid white;
-  border-radius: 30%;
-  padding: 12px 50px;
-  width: 176px;
+
+.author__text-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 131px;
+  width: 600px;
+}
+
+.author__title {
+  font-family: Roboto-Slab;
+  font-weight: 400;
+  font-size: 40px;
+   line-height: 1.2;
+}
+
+.author__text {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.3;
 }
