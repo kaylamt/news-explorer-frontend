@@ -1,0 +1,33 @@
+.footer {
+  margin: 0;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 32px 104px 26px 104px;
+}
+
+.footer__copyright {
+  color: #B6BCBF;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__link {
+  margin-right: 40px;
+  text-decoration: none;
+  color: #1A1B22;
+}
+
+.footer__social-link {
+  margin-left: 24px;
+}
+
+.footer__social-icon {
+  margin: 0;
+}

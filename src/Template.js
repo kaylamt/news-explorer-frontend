@@ -1,23 +1,23 @@
-import './Template.css';
-import author from './images/author.png';
+// import './Template.css';
+// import facebook from './images/facebook-icon.svg'
+// import github from './images/github-icon.svg'
 
-function About() {
-  return (
-    <div className="about">
-      <img src={author} className="about__author-image" alt="author" />
-      <div className="author__text-container">
-        <h1 className="author__title">
-          About the author
-        </h1>
-        <div className="author__text">
-          This block describes the project author. Here you should indicate your name, what you do, and which development technologies you know.
-        </div>
-        <div className="author__text">
-          You can also talk about your experience with Practicum, what you learned there, and how you can help potential customers.
-        </div>
-      </div>
-    </div>
-  );
-}
+// function Footer() {
+//   return (
+//     <div className="footer">
+//       <p className="footer__copyright">© 2020 Supersite, Powered by News API</p>
+//       <div className="footer__links">
+//         <p className="footer__link">Home</p>
+//         <a className="footer__link" href="https://practicum.yandex.com/web/">Practicum by Yandex</a>
+//         <a class="footer__social-link" href="https://github.com/kaylamt">
+//           <img class="footer__social-icon" src={github} alt="github-icon"></img>
+//         </a>
+//         <a class="footer__social-link" href="https://www.facebook.com/kayla.thomas.9083">
+//           <img class="footer__social-icon" src={facebook} alt="facebook-icon"></img>
+//         </a>
+//       </div>
+//     </div>
+//   );
+// }
 
-export default About;
+// export default Footer;
