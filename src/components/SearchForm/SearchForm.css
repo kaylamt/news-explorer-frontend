@@ -55,6 +55,15 @@
   background-color: #2F71E5;
   color: #FFFFFF;
 }
+
+.search-form__search-button:hover {
+  background-color: #347EFF;
+  transition: 0.3s;
+}
+.search-form__search-button:active {
+  background-color: #2A65CC;
+}
+
 .page {
   font-family: Roboto, Roboto-Slab, Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
