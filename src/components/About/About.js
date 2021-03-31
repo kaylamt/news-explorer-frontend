@@ -1,3 +1,4 @@
+import React from 'react';
 import author from '../../images/author.png';
 
 function About() {

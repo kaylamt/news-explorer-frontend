@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Template from './Template';
 import Header from './components/Header/Header';
 import SearchForm from './components/SearchForm/SearchForm';
 import About from './components/About/About';
@@ -14,7 +13,6 @@ ReactDOM.render(
     <SearchForm />
     <About />
     <Footer />
-    {/* <Template /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

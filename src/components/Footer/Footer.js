@@ -1,3 +1,4 @@
+import React from 'react';
 import facebook from '../../images/facebook-icon.svg'
 import github from '../../images/github-icon.svg'
 

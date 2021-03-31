@@ -1,7 +1,7 @@
 .search-form {
-  max-width: 1800px;
   display: flex;
   margin: 0;
+  width: 100%;
 }
 
 .search-form__content {
@@ -58,13 +58,13 @@
 
 .search-form__search-button:hover {
   background-color: #347EFF;
-  transition: 0.3s;
 }
 .search-form__search-button:active {
   background-color: #2A65CC;
 }
 
 .page {
+  max-width: 1400px;
   font-family: Roboto, Roboto-Slab, Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
