@@ -33,7 +33,6 @@
   flex-direction: row;
   align-items: center;
   border-radius: 35px;
-  background-color: white;
   width: 608px;
   height: 64px;
   margin-top: 88px;
@@ -64,7 +63,6 @@
 }
 
 .page {
-  max-width: 1400px;
   font-family: Roboto, Roboto-Slab, Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
