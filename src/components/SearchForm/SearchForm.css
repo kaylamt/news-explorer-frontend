@@ -2,9 +2,9 @@
   max-width: 1800px;
   display: flex;
   margin: 0;
-  background-image: url(../../images/home-image.png);
+  /* background-image: url(../../images/home-image.png);
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .search-form__content {
@@ -20,12 +20,14 @@
   line-height: 1.1;
   text-align: left;
   color: #FFFFFF;
+  margin: 0;
 }
 
 .search-form__subtitle {
   font-size: 18px;
   line-height: 1.3;
   color: #FFFFFF;
+  margin-top: 32px;
 }
 
 .search-form__search-container {
@@ -61,4 +63,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  background-image: url(../../images/home-image.png);
+  background-size: auto;
+  background-repeat: no-repeat;
 }
