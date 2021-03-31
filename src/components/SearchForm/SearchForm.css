@@ -2,9 +2,6 @@
   max-width: 1800px;
   display: flex;
   margin: 0;
-  /* background-image: url(../../images/home-image.png);
-  background-size: 100%;
-  background-repeat: no-repeat; */
 }
 
 .search-form__content {
@@ -56,6 +53,7 @@
   border: none;
   cursor: pointer;
   background-color: #2F71E5;
+  color: #FFFFFF;
 }
 .page {
   font-family: Roboto, Roboto-Slab, Inter, Arial, Helvetica, sans-serif;
