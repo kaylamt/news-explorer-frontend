@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './components/Header/Header';
-import SearchForm from './components/SearchForm/SearchForm';
-import About from './components/About/About';
-import Footer from './components/Footer/Footer';
 import reportWebVitals from './reportWebVitals';
+import App from './components/App/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <SearchForm />
-    <About />
-    <Footer />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

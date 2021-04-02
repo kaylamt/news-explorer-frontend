@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 950px) {
+/* @media screen and (max-width: 950px) {
   .header {
     width: calc(100% - 40px);
     }
@@ -43,7 +43,6 @@
 
 @media screen and (max-width: 430px) {
   .header {
-    /* width: calc(100% - 20px); */
     }
   }
 
@@ -51,4 +50,4 @@
   .header {
     width: calc(100% - 8px);
     }
-  }
+  } */

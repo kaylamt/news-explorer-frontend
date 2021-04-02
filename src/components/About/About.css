@@ -29,7 +29,7 @@
   overflow-wrap: none;
 }
 
-@media screen and (max-width: 950px) {
+/* @media screen and (max-width: 950px) {
   .about__author-image {
     width: 363px;
     height: 363px;
@@ -51,4 +51,4 @@
   .author__title {
     font-size: 30px;
   }
-}
+} */
