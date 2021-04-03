@@ -7,7 +7,7 @@ function NewsCard(props) {
     <div className="news-card">
       <div className="news-card__image-container">
         <p className="news-card__keyword">{props.article.keyword}</p>
-        {/* <button aria-label="delete button" className={cardDeleteButtonClassName} type="button" onClick={handleDeleteClick} /> */}
+        <button aria-label="delete button" className="news-card__delete-button" type="button" />
         <img className="news-card__image" alt={props.article.title} src={props.article.image} />
       </div>
       <div className="news-card__info-container">
