@@ -57,11 +57,11 @@ function SavedNews() {
     },
   ]
   return (
-    <div>
+    <>
       <SavedNewsHeader />
       <NewsCardList articles={articles} />
       <Footer />
-    </div>
+    </>
   );
 };
 

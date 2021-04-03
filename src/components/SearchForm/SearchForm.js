@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 
 function SearchForm() {
   return (
-    <div>
+    <div className="search-form__container">
       <Header />
       <div className="search-form">
         <div className="search-form__content">

@@ -20,9 +20,9 @@
 .header__home-link {
   color: #FFFFFF;
   margin-right: 40px;
-  border-bottom: 2px solid #FFFFFF;
   padding-bottom: 23px;
   cursor: pointer;
+  text-decoration: none;
 
 }
 .header__sign-in {
@@ -34,6 +34,16 @@
   margin: 0;
   cursor: pointer;
 }
+
+.header__saved-articles-link {
+  color: #1A1B22;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+
+
 
 /* @media screen and (max-width: 950px) {
   .header {

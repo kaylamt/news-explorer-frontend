@@ -5,7 +5,7 @@ import github from '../../images/github-icon.svg'
 function Footer() {
   return (
     <div className="footer">
-      <p className="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <p className="footer__copyright">© 2021 Supersite, Powered by News API</p>
       <div className="footer__links">
         <p className="footer__link">Home</p>
         <a className="footer__link" href="https://practicum.yandex.com/web/">Practicum by Yandex</a>

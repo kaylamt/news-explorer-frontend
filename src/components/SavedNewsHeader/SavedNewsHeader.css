@@ -1,0 +1,27 @@
+
+.saved-news-header {
+  max-width: 1200px;
+  width: calc(100% - 204px);
+  margin: 24px auto 32px auto;
+  color: #1A1B22;
+}
+
+.saved-news-header__subtitle {
+  color: rgba(26, 27, 34, 0.5);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.saved-news-header__title {
+  margin: 0;
+  max-width: 530px;
+  font-size: 40px;
+  line-height: 46px;
+  font-family: Roboto-Slab;
+  font-weight: normal;
+}
+
+.saved-news-header__keywords {
+  font-size: 18px;
+  line-height: 24px;
+}

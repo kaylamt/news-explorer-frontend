@@ -10,7 +10,7 @@ function Header() {
         <div className="header__links">
           <Link to="/" className="header__home-link">Home</Link>
           <Link to="/saved-news" className="header__saved-articles-link">Saved articles</Link>
-          <span oclassName="header__sign-in">Sign In</span>
+          <span className="header__sign-in">Sign In</span>
         </div>
       </div>
     </div>
