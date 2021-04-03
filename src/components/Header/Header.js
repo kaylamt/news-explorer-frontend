@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/header-logo.svg';
 
 function Header() {
@@ -7,8 +8,9 @@ function Header() {
       <div className="header__container">
         <img src={logo} className="header__logo" alt="logo" />
         <div className="header__links">
-          <span className="header__home-link">Home</span>
-          <span className="header__sign-in">Sign In</span>
+          <Link to="/" className="header__home-link">Home</Link>
+          <Link to="/saved-news" className="header__saved-articles-link">Saved articles</Link>
+          <span oclassName="header__sign-in">Sign In</span>
         </div>
       </div>
     </div>
