@@ -53,13 +53,16 @@ function SavedNews() {
       source: "TREEHUGGER",
       link: "https://www.treehugger.com/polaris-north-star-facts-how-big-far-4859425",
       image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.itstactical.com%2Fwp-content%2Fuploads%2F2013%2F11%2FNorth_Star_Polaris.jpg&f=1&nofb=1",
-      _id: 4,
+      _id: 5,
     },
   ]
   return (
     <>
       <SavedNewsHeader />
-      <NewsCardList articles={articles} />
+
+      <div className="news-card-list__container">
+        <NewsCardList articles={articles} />
+      </div>
       <Footer />
     </>
   );

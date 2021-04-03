@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 
-function SavedNewsHeader() {
+function SavedNewsHeader(props) {
   return (
     <>
       <Header />

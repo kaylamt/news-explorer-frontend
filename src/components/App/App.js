@@ -4,7 +4,6 @@ import {
 } from 'react-router-dom';
 import Main from '../Main/Main'
 import SavedNews from '../SavedNews/SavedNews'
-import NewsCard from '../NewsCard/NewsCard'
 
 function App() {
   return (
