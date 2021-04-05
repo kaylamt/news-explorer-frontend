@@ -1,6 +1,4 @@
 import React from 'react';
-// import NewsCard from '../NewsCard/NewsCard';
-//flexbox container
 
 function NewsCard(props) {
   return (
@@ -15,11 +13,11 @@ function NewsCard(props) {
           <p className="news-card__date">{props.article.date}</p>
           <h2 className="news-card__title">{props.article.title}</h2>
         </div>
-        <div className="news-card__text-container">
-          <p className="news-card__text">{props.article.text}</p>
-          <a class="news-card__link" href={props.article.link}>{props.article.source}
-          </a>
-        </div>
+        {/* <div className="news-card__text-container"> */}
+        <p className="news-card__text">{props.article.text}</p>
+        <a class="news-card__link" href={props.article.link}>{props.article.source}
+        </a>
+        {/* </div> */}
       </div>
     </div>
   );
