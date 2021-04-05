@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 function SearchForm() {
   return (
     <div className="search-form">
-      <Header />
+      <Header cssModifier="home" />
       <div className="search-form__content">
         <h1 className="search-form__title">
           What's going on in the world?

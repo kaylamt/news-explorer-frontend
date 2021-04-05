@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 function SavedNewsHeader() {
   return (
     <>
-      <Header />
+      <Header cssModifier="saved-news" />
       <div className="saved-news-header">
         <p className="saved-news-header__subtitle">Saved articles</p>
         <h1 className="saved-news-header__title">Elise, you have 5 saved articles</h1>
