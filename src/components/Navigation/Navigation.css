@@ -2,6 +2,16 @@
   display: none;
 }
 
+.navigation__home-link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.navigation__saved-articles-link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 @media screen and (max-width: 450px) {
   .navigation__menu {
    display: unset
