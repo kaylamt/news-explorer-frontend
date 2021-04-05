@@ -60,13 +60,21 @@
 
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 650px) {
+  .about {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    margin-top: 32px;
+  }
+
   .about__author-image {
     width: 272px;
     height: 272px;
+    margin: 0 auto 24px auto;
   }
   .author__text-container{
     width: 288px;
+    margin: 0 auto 128px auto;
   }
   .author__title {
     font-size: 30px;

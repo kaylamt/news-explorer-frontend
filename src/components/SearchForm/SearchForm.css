@@ -119,8 +119,19 @@
     width: 288px;
   }
 
-  .search-form__search-button{
+  .search-form__search-button {
     height: 56px;
+    width: 288px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+ .search-form__title {
+    font-size: 36px;
+    line-height: 40px;
+    width: 288px;
+  }
+  .search-form__subtitle{
     width: 288px;
   }
 }
