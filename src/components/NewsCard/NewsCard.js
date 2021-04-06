@@ -5,7 +5,10 @@ function NewsCard(props) {
     <div className="news-card">
       <div className="news-card__image-container">
         <p className="news-card__keyword">{props.article.keyword}</p>
-        <button aria-label="delete button" className="news-card__delete-button" type="button" />
+        <div className="news-card__delete-button-container">
+          <button aria-label="delete button" className="news-card__delete-button" type="button" />
+          <span className="news-card__remove-popup">Remove from saved</span>
+        </div>
         <img className="news-card__image" alt={props.article.title} src={props.article.image} />
       </div>
       <div className="news-card__info-container">
