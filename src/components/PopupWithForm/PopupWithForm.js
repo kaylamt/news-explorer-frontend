@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from '../Header/Header'
 
 function PopupWithForm(props) {
   return (
-    <div className={`popup popup_type_${props.name} ${props.isOpen ? 'popup_opened' : ''}`} >
+    <div className={`popup popup_type_${props.name} ${props.isOpen ? 'popup_opened' : ''}`}  >
       <div className="popup__container" >
         <button aria-label="close button" className="popup__close-button" type="reset" onClick={props.onClose} />
         <h2 className="popup__title">{props.title}</h2>

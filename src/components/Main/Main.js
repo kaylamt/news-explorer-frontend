@@ -46,22 +46,22 @@ function Main(props) {
   return (
     <div>
       <PopupWithForm onSubmit={handleSignIn} onClose={closeSignInPopup} isOpen={isSignInPopupOpen} buttonText='Sign In' otherLink='Sign up' name='sign-in' title='Sign In'>
-        <p className="form__input-title">Enter email</p>
-        <input id="email" type="email" className="form__input form__input_field_name" name="name" minLength={2} maxLength={40} placeholder="Email" required />
+        <p className="form__input-title">Email</p>
+        <input id="email" type="email" className="form__input form__input_field_name" name="name" minLength={2} maxLength={40} placeholder="Enter email" required />
         <span id="email-error" className="popup__error" />
-        <p className="form__input-title">Enter password</p>
-        <input id="password" type="password" className="form__input form__input_field_description" name="pasword" placeholder="Password" minLength={2} maxLength={200} required />
+        <p className="form__input-title">Password</p>
+        <input id="password" type="password" className="form__input form__input_field_description" name="pasword" placeholder="Enter password" minLength={2} maxLength={200} required />
         <span id="password-error" className="popup__error" />
       </PopupWithForm>
       <PopupWithForm onSubmit={handleSignUp} onClose={closeSignUpPopup} isOpen={isSignUpPopupOpen} buttonText='Sign Up' otherLink='Sign in' name='sign-up' title='Sign Up'>
-        <p className="form__input-title">Enter email</p>
-        <input id="email" type="email" className="form__input form__input_field_name" name="name" minLength={2} maxLength={40} placeholder="Email" required />
+        <p className="form__input-title">Email</p>
+        <input id="email" type="email" className="form__input form__input_field_name" name="name" minLength={2} maxLength={40} placeholder="Enter email" required />
         <span id="email-error" className="popup__error" />
-        <p className="form__input-title">Enter password</p>
-        <input id="password" type="password" className="form__input form__input_field_description" name="pasword" placeholder="Password" minLength={2} maxLength={200} required />
+        <p className="form__input-title">Password</p>
+        <input id="password" type="password" className="form__input form__input_field_description" name="pasword" placeholder="Enter password" minLength={2} maxLength={200} required />
         <span id="password-error" className="popup__error" />
-        <p className="form__input-title">Enter username</p>
-        <input id="username" type="username" className="form__input form__input_field_description" name="pasword" placeholder="Username" minLength={2} maxLength={200} required />
+        <p className="form__input-title">Username</p>
+        <input id="username" type="username" className="form__input form__input_field_description" name="pasword" placeholder="Enter username" minLength={2} maxLength={200} required />
         <span id="username-error" className="popup__error" />
       </PopupWithForm>
       <SearchForm openSignInPopup={openSignInPopup} openSignUpPopup={openSignUpPopup} onLogin={props.onLogin} />

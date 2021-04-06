@@ -35,12 +35,10 @@
 
 @media screen and (max-width: 767px) {
   .form__input {
-    width: calc(100% - 40px);
-    max-width: 200px;
+    width: 288px;
   }
 
   .popup__error {
-    width: calc(100% - 40px);
-    max-width: 200px;
+    width: 288px;
   }
 }
