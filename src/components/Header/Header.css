@@ -125,13 +125,13 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .header {
+  .header__container {
     width: calc(100% - 150px);
     }
   }
 
 @media screen and (max-width: 768px) {
-  .header {
+  .header__container {
     width: calc(100% - 80px);
     }
   .header__sign-in {
@@ -151,7 +151,7 @@
 } */
 
 @media screen and (max-width: 450px) {
-  .header {
+  .header__container {
     width: calc(100% - 32px);
     }
   .header__links {

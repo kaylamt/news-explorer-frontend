@@ -2,6 +2,10 @@
   display: none;
 }
 
+.navigation__list {
+  display: none;
+}
+
 .navigation__home-link {
   text-decoration: none;
   color: #FFFFFF;
@@ -10,6 +14,10 @@
 .navigation__saved-articles-link {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+.navigation:hover .navigation__list {
+     display: unset;
 }
 
 @media screen and (max-width: 450px) {
