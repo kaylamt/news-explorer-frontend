@@ -17,7 +17,7 @@
   color: #2F71E5;
   font-family: Inter;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 1.2;
 }
 
 .form__input:focus:required:invalid {

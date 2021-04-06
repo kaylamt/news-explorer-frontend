@@ -4,6 +4,7 @@
 
 .navigation__list {
   display: none;
+  background-color: #1A1B22;
 }
 
 .navigation__home-link {
@@ -14,14 +15,15 @@
 .navigation__saved-articles-link {
   text-decoration: none;
   color: #FFFFFF;
+  display: none;
 }
 
 .navigation:hover .navigation__list {
-     display: unset;
+    display: unset;
 }
 
 @media screen and (max-width: 450px) {
   .navigation__menu {
-   display: unset
+   display: unset;
   }
 }

@@ -50,7 +50,7 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.3;
 }
 
 .header__home-link_saved-news {
@@ -98,7 +98,7 @@
   display: unset;
   margin-right: 15px;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.3;
 }
 
 .header__profile-logout {
@@ -120,7 +120,7 @@
   color: #1A1B22;
   text-decoration: none;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.3;
   margin-right: 64px;
 }
 
@@ -139,7 +139,7 @@
     }
   .header__home-link {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5;
     margin-right: 16px;
     }
   }
