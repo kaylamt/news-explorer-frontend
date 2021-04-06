@@ -2,10 +2,26 @@
   max-width: 1440px;
   width: calc(100% - 208px); 
   margin: 0 auto;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
 }
 
 .header_saved-news {
-  background: red;
+}
+
+.header__logo {
+  display: unset;
+}
+
+.header__logo_saved-news {
+  display: none;
+}
+
+.header__logo-saved-news {
+  display: none;
+}
+
+.header__logo-saved-news_saved-news {
+  display: unset;
 }
 
 .header__home-link_saved-news {
@@ -19,7 +35,13 @@
   align-items: center;
   padding-top: 30px;
   padding-bottom: 26px;
-  border-bottom: 1px solid rgba(196, 196, 196, 0.3)
+  /* border-bottom: 1px solid rgba(196, 196, 196, 0.3) */
+}
+
+.header__links_saved-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header__home-link {
@@ -28,8 +50,16 @@
   padding-bottom: 23px;
   cursor: pointer;
   text-decoration: none;
-
+  font-size: 18px;
+  line-height: 24px;
 }
+
+.header__home-link_saved-news {
+  padding-bottom: 0;
+  color: #1A1B22;
+  margin-right: 76px;
+}
+
 .header__sign-in {
   color: #FFFFFF;
   border: 1px solid #FFFFFF;
@@ -40,11 +70,59 @@
   cursor: pointer;
 }
 
+.header__sign-in_saved-news {
+  display: none;
+}
+
+.header__profile-container {
+  display: none;
+}
+
+.header__profile-container_saved-news {
+  border: 1px solid #1A1B22;
+  border-radius: 35px;
+  padding: 12px 50px;
+  width: 112px;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__profile-name {
+  display: none;
+}
+
+.header__profile-name_saved-news {
+  display: unset;
+  margin-right: 15px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header__profile-logout {
+  display: none;
+}
+
+.header__profile-logout_saved-news {
+  display: unset;
+  width: 24px;
+  height: 24px;
+}
+
 .header__saved-articles-link {
+  display: none;
+}
+
+.header__saved-articles-link_saved-news {
+  display: unset;
   color: #1A1B22;
   text-decoration: none;
-  font-size: 16px;
-  margin-right: 16px;
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 64px;
 }
 
 @media screen and (max-width: 1024px) {
