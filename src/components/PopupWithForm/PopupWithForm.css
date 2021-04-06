@@ -13,6 +13,12 @@
   transition: visibility 0.3s, opacity 0.3s ease-out;
 }
 
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
+}
+
 .popup__button-container {
   display: flex;
   flex-wrap: wrap;
@@ -75,6 +81,20 @@
   color: rgba(84, 84, 84, 0.2);
 }
 
+.popup__container {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media screen and (max-width: 767px) {
   .form__save-button {
     width: calc(100% - 40px);
@@ -92,5 +112,14 @@
    .popup__close-button {
     right: -235px;
     top: -35px;
+  }
+
+   .popup__container {
+    max-width: 240px;
+    width: calc(100% - 80px);
+  }
+
+   .form {
+    width: 240px;
   }
 }

@@ -2,32 +2,29 @@ import React from 'react';
 import {
   BrowserRouter, Switch,
 } from 'react-router-dom';
-import Main from '../Main/Main'
-import SavedNews from '../SavedNews/SavedNews'
+import Main from '../Main/Main';
+import SavedNews from '../SavedNews/SavedNews';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
-  // const [loggedIn, setLoggedIn] = React.useState(false);
-  // const [email, setEmail] = React.useState('');
+  const [currentUser, setCurrentUser] = React.useState({});
 
-  // React.useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     auth.validate(token)
-  //       .then((validation) => {
-  //         setLoggedIn(true);
-  //         setEmail(validation.email);
-  //         loadPageData();
-  //       }).catch((error) => console.log(error));
-  //   }
-  // }, []);
+  function handleLogIn() {
+    setCurrentUser({
+      _id: "1234",
+      name: "Elise"
+    })
+  }
 
   return (
-    <BrowserRouter >
-      <Switch>
-        <Main exact path='/' />
-        <SavedNews exact path='/saved-news' />
-      </Switch>
-    </BrowserRouter>
+    <CurrentUserContext.Provider value={currentUser}>
+      <BrowserRouter >
+        <Switch>
+          <Main exact path='/' onLogin={handleLogIn} />
+          <SavedNews exact path='/saved-news' />
+        </Switch>
+      </BrowserRouter>
+    </CurrentUserContext.Provider>
   );
 };
 

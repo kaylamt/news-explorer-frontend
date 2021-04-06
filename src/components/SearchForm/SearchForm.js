@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../Header/Header'
 
-function SearchForm() {
+function SearchForm(props) {
   return (
     <div className="search-form">
-      <Header cssModifier="home" />
+      <Header cssModifier="home" onLogin={props.onLogin} openSignInPopup={props.openSignInPopup} />
       <div className="search-form__content">
         <h1 className="search-form__title">
           What's going on in the world?

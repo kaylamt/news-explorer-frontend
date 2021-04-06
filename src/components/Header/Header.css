@@ -4,8 +4,12 @@
   margin: 0 auto;
 }
 
-.header-saved-news {
+.header_saved-news {
   background: red;
+}
+
+.header__home-link_saved-news {
+   color: #1A1B22;
 }
 
 .header__container {
