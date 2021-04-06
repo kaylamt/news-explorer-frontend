@@ -25,3 +25,23 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media screen and (max-width: 768px) {
+  .saved-news-header__title {
+    font-size: 30px;
+  }
+
+  .saved-news-header__subtitle {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .saved-news-header {
+    width: calc(100% - 32px);
+  }
+
+   .saved-news-header__subtitle {
+    font-size: 12px;
+  }
+}

@@ -24,6 +24,7 @@
   color: #FFFFFF;
   margin: 0;
   width: 608px;
+  overflow: hidden;
 }
 
 .search-form__subtitle {
@@ -32,6 +33,7 @@
   color: #FFFFFF;
   margin-top: 32px;
   width: 608px;
+  overflow: hidden;
 }
 
 .search-form__search-container {
