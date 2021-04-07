@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import menu from '../../images/menu.svg'
 
 function Navigation(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -31,10 +30,15 @@ function Navigation(props) {
         </div>
       </div>
       <div className="navigation__menu">
-        <img src={menu} className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu" />
+        {/* <div className="navigation__menu-container">
+          <span className={`navigation__menu-logo navigation__menu-logo_${props.cssModifier}`} alt="logo" />
+        </div> */}
+        <span className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu"></span>
         <div className="navigation__list">
           <Link to="/" className="navigation__home-link">Home</Link>
-          <Link to="/saved-news" className="navigation__saved-articles-link">Saved articles</Link>
+          {currentUser._id &&
+            <Link to="/saved-news" className="navigation__saved-articles-link">Saved articles</Link>
+          }
           <span className="navigation__menu-sign-in">Sign In</span>
         </div>
       </div>
