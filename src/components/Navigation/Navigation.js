@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../images/header-logo.svg';
-import logoSavedNews from '../../images/logo-saved-news.svg';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Navigation(props) {

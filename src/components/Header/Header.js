@@ -62,7 +62,9 @@ function Header(props) {
       return (
         <div className="search-form__results">
           <NewsCardList articles={articles} inSearchResults={true} />
-          <button className="header__search-results">Show more</button>
+          <div classList="header__search-results-button-container">
+            <button className="header__search-results-button">Show more</button>
+          </div>
         </div>
       )
     } else if (searchAttempted) {
