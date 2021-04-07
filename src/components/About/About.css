@@ -36,9 +36,6 @@
     width: 363px;
     height: 363px;
   }
-  .author__text-container{
-
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -64,7 +61,7 @@
   .about {
     width: calc(100% - 32px);
     flex-direction: column;
-    margin-top: 32px;
+    margin: 32px auto 0 auto;
   }
 
   .about__author-image {

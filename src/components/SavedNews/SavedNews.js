@@ -59,10 +59,7 @@ function SavedNews() {
   return (
     <>
       <SavedNewsHeader articleCount={articles.length} />
-
-      <div className="news-card-list__container">
-        <NewsCardList articles={articles} />
-      </div>
+      <NewsCardList articles={articles} />
       <Footer />
     </>
   );
