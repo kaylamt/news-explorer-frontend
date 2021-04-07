@@ -34,12 +34,22 @@
   cursor: pointer;
 }
 
+.footer__link:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
 .footer__social-link {
   margin-left: 24px;
 }
 
 .footer__social-icon {
   margin: 0;
+}
+
+.footer__social-icon:hover {
+  opacity: 0.6;
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 1024px) {
