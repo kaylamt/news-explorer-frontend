@@ -210,15 +210,6 @@
 
 @media screen and (max-width: 560px) {
 
-
-  /* .header__logo {
-    display: none;
-  }
-  .header__container {
-    width: calc(100% - 32px);
-    display: none;
-    } */
-
   .header__links {
     display: flex;
     align-items: center;
@@ -254,6 +245,10 @@
     background-color: #1A1B22;
   }
 
+  /* .navigation__menu_saved-news {
+    background-color: #FFFFFF;
+  } */
+
   .navigation__menu-container {
     display: flex;
   flex-direction: row;
@@ -283,18 +278,14 @@
   background-repeat: no-repeat;
 }
 
- .navigation__menu:hover .navigation__list {
+  .list_mobile_menu_opened {
     display: flex;
     flex-direction: column;
   }
 
- .navigation__menu:hover .navigation__menu-img {
-   background-image: url(../../images/close-button.svg);
-    background-size: 24px;
-    transform: rotate(45deg);
-  }
 
 @media screen and (max-width: 560px) {
+
   .navigation__menu-img {
    display: unset;
    position: absolute;
@@ -305,10 +296,28 @@
    width: 24px;
   }
 
-  .navigation__menu-img_saved-news {
+    .navigation__menu-img_saved-news {
     background-image: url(../../images/saved-news-menu.svg);
-     height: 24px;
-   width: 24px;
+    height: 24px;
+    width: 24px;
+  }
+
+    .img_mobile_menu_opened {
+   background-image: url(../../images/close-button.svg);
+    background-size: 24px;
+    transform: rotate(45deg);
+  }
+
+  .header_mobile_menu_opened {
+    background: #1A1B22;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 10px;
+  }
+  
+  .logo_mobile_menu_opened {
+    background-image: url(../../images/header-logo.svg);
   }
 
   .navigation__home-link {
@@ -321,8 +330,9 @@ line-height: 3.1;
   margin: 0 auto 0 auto;
   }
 
+
   .navigation__home-link:hover {
-     opacity: 0.6;
+    opacity: 0.6;
   transition: 0.3s;
   }
 
@@ -336,9 +346,13 @@ line-height: 3.1;
   margin: 0 auto 0 auto;
   }
 
+  .navigation__saved-articles-link_saved-news {
+    color: #1A1B22;
+  }
+
    .navigation__saved-articles-link:hover {
      opacity: 0.6;
-  transition: 0.3s;
+    transition: 0.3s;
   }
 
   .navigation__menu-sign-in {
@@ -352,7 +366,13 @@ line-height: 3.1;
     margin: 22px auto 13px auto;
     font-size: 18px;
     line-height: 1.3;
-  } 
+    font-weight: 500;
+    } 
+
+  .navigation__menu-sign-in_saved-news {
+    color: #1A1B22;
+    border: 1px solid #1A1B22;
+  }
   
   .navigation__menu-sign-in:hover {
   opacity: 0.6;
