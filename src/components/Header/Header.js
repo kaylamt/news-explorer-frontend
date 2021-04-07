@@ -61,7 +61,7 @@ function Header(props) {
   function searchResults() {
     if (articles.length > 0) {
       return (
-        <div className="search-form__results">
+        <div className="header__search-form-results">
           <NewsCardList articles={articles} inSearchResults={true} />
           <div className="header__search-results-button-container">
             <button className="header__search-results-button">Show more</button>
