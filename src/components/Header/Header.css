@@ -55,6 +55,13 @@
   margin-bottom: 88px;
 }
 
+.preloader {
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F6F7;
+}
+
 @media screen and (max-width: 450px) {
   .header__search-not-found-text{
     width: 200px;

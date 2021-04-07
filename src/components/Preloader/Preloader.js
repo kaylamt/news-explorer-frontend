@@ -7,6 +7,7 @@ function Preloader(props) {
         props.isShown &&
         < i className="circle-preloader" ></ i>
       }
+      <p className="preloader__text">Searching for news...</p>
     </>
   );
 };
