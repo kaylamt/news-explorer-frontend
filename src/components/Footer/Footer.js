@@ -1,6 +1,7 @@
 import React from 'react';
 import facebook from '../../images/facebook-icon.svg'
 import github from '../../images/github-icon.svg'
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -9,7 +10,7 @@ function Footer() {
         <p className="footer__copyright">© {new Date().getFullYear()} Supersite, Powered by News API</p>
         <div className="footer__links">
           <div className="footer__page-links">
-            <p className="footer__link">Home</p>
+            <Link to="/" className="footer__link">Home</Link>
             <a className="footer__link" href="https://practicum.yandex.com/web/">Practicum by Yandex</a>
           </div>
           <div className="footer__social-links">
