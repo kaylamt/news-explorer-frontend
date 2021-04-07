@@ -53,12 +53,14 @@
 }
 
 @media screen and (max-width: 1024px) {
-.footer {
+  .footer {
     width: calc(100% - 80px);
-    }
+  }
+
   .footer__link {
     margin-right: 20px;
   }
+
   .footer__social-link {
     margin-left: 15px;
   }
@@ -71,11 +73,13 @@
     width: 320px;
     padding: 0;
   }
+
   .footer__copyright {
     position: relative;
     bottom: -100px;
     text-align: center;
   }
+
   .footer__links {
     margin: 0 auto;
     align-items: flex-start;
@@ -86,6 +90,7 @@
   .footer__link{
     margin-top: 0;
   }
+
   .footer__page-links{
     flex-direction: column;
     align-items: flex-start; 
@@ -95,6 +100,4 @@
     width: 320px;
     height: 176px;
   }
-
-     
 }

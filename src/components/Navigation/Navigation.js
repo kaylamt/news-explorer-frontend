@@ -39,9 +39,9 @@ function Navigation(props) {
       <div className={`navigation__menu navigation__menu_${props.cssModifier}`}>
         <span className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu" onClick={openMobileMenu} ></span>
         <div className="navigation__list">
-          <Link to="/" className={`navigation__home-link navigation__home-link_${props.cssModifier}`}>Home</Link>
+          <Link to="/" className="navigation__menu-home-link ">Home</Link>
           {currentUser._id &&
-            <Link to="/saved-news" className="navigation__saved-articles-link" >Saved articles</Link>
+            <Link to="/saved-news" className="navigation__menu-saved-articles-link" >Saved articles</Link>
           }
           <span className="navigation__menu-sign-in">Sign In</span>
         </div>
