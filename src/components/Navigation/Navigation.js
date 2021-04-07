@@ -30,7 +30,7 @@ function Navigation(props) {
           {signedInButton()}
         </div>
       </div>
-      <div className="navigation-menu">
+      <div className="navigation__menu">
         <img src={menu} className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu" />
         <div className="navigation__list">
           <Link to="/" className="navigation__home-link">Home</Link>
