@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import menu from '../../images/menu.svg'
 
 function Navigation(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -22,11 +23,19 @@ function Navigation(props) {
         <span className={`header__logo header__logo_${props.cssModifier}`} alt="logo" />
         <span className={`header__logo-saved-news header__logo-saved-news_${props.cssModifier}`} alt="logo" />
         <div className={`header__links header__links_${props.cssModifier}`}>
-          <NavLink to="/" className={`header__home-link header__home-link_${props.cssModifier}`}>Home</NavLink>
+          <NavLink exact to="/" activeClassName="home-active" className={`header__home-link header__home-link_${props.cssModifier}`}>Home</NavLink>
           {currentUser._id &&
-            <NavLink to="/saved-news" className={`header__saved-articles-link header__saved-articles-link_${props.cssModifier}`}>Saved articles</NavLink>
+            <NavLink to="/saved-news" activeClassName="saved-articles-active" className={`header__saved-articles-link header__saved-articles-link_${props.cssModifier}`}>Saved articles</NavLink>
           }
           {signedInButton()}
+        </div>
+      </div>
+      <div className="navigation-menu">
+        <img src={menu} className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu" />
+        <div className="navigation__list">
+          <Link to="/" className="navigation__home-link">Home</Link>
+          <Link to="/saved-news" className="navigation__saved-articles-link">Saved articles</Link>
+          <span className="navigation__menu-sign-in">Sign In</span>
         </div>
       </div>
     </div>
