@@ -21,8 +21,8 @@ function Navigation(props) {
   return (
     <div className={`header header_${props.cssModifier}`}>
       <div className="header__container">
-        <img src={logo} className={`header__logo header__logo_${props.cssModifier}`} alt="logo" />
-        <img src={logoSavedNews} className={`header__logo-saved-news header__logo-saved-news_${props.cssModifier}`} alt="logo" />
+        <span className={`header__logo header__logo_${props.cssModifier}`} alt="logo" />
+        <span className={`header__logo-saved-news header__logo-saved-news_${props.cssModifier}`} alt="logo" />
         <div className={`header__links header__links_${props.cssModifier}`}>
           <NavLink to="/" className={`header__home-link header__home-link_${props.cssModifier}`}>Home</NavLink>
           {currentUser._id &&
