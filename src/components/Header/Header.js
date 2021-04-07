@@ -3,6 +3,7 @@ import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import notFound from '../../images/notFound.svg';
 
 function Header(props) {
 
@@ -62,14 +63,19 @@ function Header(props) {
       return (
         <div className="search-form__results">
           <NewsCardList articles={articles} inSearchResults={true} />
-          <div classList="header__search-results-button-container">
+          <div className="header__search-results-button-container">
             <button className="header__search-results-button">Show more</button>
           </div>
         </div>
       )
     } else if (searchAttempted) {
       return (
-        <div className="search-not-found">Nothing found</div>
+        <div className="header__search-not-found">
+          <img className="header__search-not-found-image" src={notFound} alt="not-found"></img>
+          <div className="header__search-not-found-title">Nothing found</div>
+          <div className="header__search-not-found-text">Sorry, but nothing matched
+your search terms.</div>
+        </div>
       )
     }
     else if (searching) {
