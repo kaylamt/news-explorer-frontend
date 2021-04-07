@@ -78,7 +78,7 @@
 }
 
 .form__save-button_disabled {
-  background: #ffffff;
+  background: #E6E8EB;
   border: 1px solid rgba(84, 84, 84, 0.2);
   color: rgba(84, 84, 84, 0.2);
 }

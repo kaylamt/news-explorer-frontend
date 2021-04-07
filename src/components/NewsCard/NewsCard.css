@@ -128,15 +128,3 @@
   color: #B6BCBF;
   text-transform: uppercase;
 }
-
-/* @media screen and (max-width: 768px) {
-  .news-card {
-    width: 224px;
-    height: 400px;
-  }
-} */
-
-@media screen and (max-width: 500px) {
-  .news-card {
-  }
-}

@@ -9,6 +9,22 @@ function Main(props) {
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
+  function disableButton() {
+    if (email === '' && password === '') {
+      return true;
+    }
+  }
 
   function handleSignIn(e) {
     e.preventDefault();
@@ -60,16 +76,16 @@ function Main(props) {
 
   return (
     <div>
-      <PopupWithForm onSubmit={handleSignIn} onClose={closeAllPopups} isOpen={isSignInPopupOpen} buttonText='Sign In' onFormLinkClick={openSignUpPopup} otherLink='Sign up' name='sign-in' title='Sign In'>
+      <PopupWithForm onSubmit={handleSignIn} onClose={closeAllPopups} isOpen={isSignInPopupOpen} buttonText='Sign In' onFormLinkClick={openSignUpPopup} otherLink='Sign up' name='sign-in' disabled={disableButton} title='Sign In'>
         <p className="form__input-title">Email</p>
-        <input id="email" type="email" className="form__input form__input_field_email" name="name" minLength={2} maxLength={40} placeholder="Enter email" required />
+        <input id="email" value={email} type="email" className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" onChange={handleEmailChange} required />
         <p className="form__input-title">Password</p>
-        <input id="password" type="password" className="form__input form__input_field_password" name="pasword" placeholder="Enter password" minLength={2} maxLength={200} required />
+        <input id="password" value={password} type="password" className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} onChange={handlePasswordChange} required />
         <span id="password-error" className="popup__error" />
       </PopupWithForm>
       <PopupWithForm onSubmit={handleSignUp} onClose={closeAllPopups} isOpen={isSignUpPopupOpen} buttonText='Sign Up' onFormLinkClick={openSignInPopup} otherLink='Sign in' name='sign-up' title='Sign Up'>
         <p className="form__input-title">Email</p>
-        <input id="email" type="email" className="form__input form__input_field_email" name="name" minLength={2} maxLength={40} placeholder="Enter email" required />
+        <input id="email" type="email" className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
         <span id="email-error" className="popup__error" />
         <p className="form__input-title">Password</p>
         <input id="password" type="password" className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
