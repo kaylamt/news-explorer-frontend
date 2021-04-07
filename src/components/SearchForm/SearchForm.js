@@ -84,7 +84,7 @@ function SearchForm(props) {
   return (
     <>
       <div className="search-form">
-        <Header cssModifier="home" openSignInPopup={props.openSignInPopup} openSignUpPopup={props.openSignUpPopup} />
+        <Header cssModifier="home" openSignInPopup={props.openSignInPopup} />
         <div className="search-form__content">
           <h1 className="search-form__title">
             What's going on in the world?

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header'
 
 function PopupWithForm(props) {
   return (
@@ -10,7 +9,7 @@ function PopupWithForm(props) {
         <form action="#" className="form form_delete" onSubmit={props.onSubmit} name={props.name}>
           {props.children}
           <button aria-label="save button" className="form__save-button form__save-button-delete" type="submit">{props.buttonText}</button>
-          <span className="form__link" onClick={props.openSignUpPopup} >or {props.otherLink}</span>
+          <span className="form__link" onClick={props.onFormLinkClick} >or {props.otherLink}</span>
         </form>
       </div>
     </div>

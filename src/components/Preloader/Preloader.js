@@ -5,7 +5,7 @@ function Preloader(props) {
     <>
       {
         props.isShown &&
-        < i class="circle-preloader" ></ i>
+        < i className="circle-preloader" ></ i>
       }
     </>
   );
