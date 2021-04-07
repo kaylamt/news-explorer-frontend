@@ -25,8 +25,7 @@
   justify-content: center;
 }
 
-.news-card__delete-button {
-  background-image: url('../../images/trash.svg');
+.news-card__button {
   position: absolute;
   right: 24px;
   top: 24px;
@@ -41,11 +40,28 @@
   cursor: pointer;
 }
 
-.news-card__delete-button:hover {
+
+.news-card__button_delete {
+  background-image: url('../../images/trash.svg');
+}
+
+.news-card__button_save {
+  background-image: url('../../images/bookmark.svg');
+}
+
+.news-card__button_save:hover {
+  background-image: url('../../images/bookmark-hover.svg');
+}
+
+.news-card__button_active {
+  background-image: url('../../images/bookmark-active.svg');
+}
+
+.news-card__button_delete:hover {
   background-image: url('../../images/trash-hover.svg');
 }
 
-.news-card__remove-popup {
+.news-card__popup {
   position: absolute;
   right: 70px;
   top: 24px;
@@ -64,7 +80,7 @@
   visibility: hidden;
 }
 
-.news-card__delete-button-container:hover .news-card__remove-popup {
+.news-card__button-container:hover .news-card__popup {
      visibility: visible;
 }
 

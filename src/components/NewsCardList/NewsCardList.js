@@ -7,7 +7,7 @@ function NewsCardList(props) {
     <div className="news-card-list__container">
       <section className="news-card-list">
         {props.articles.map((article) => (
-          <NewsCard article={article} key={article._id} />
+          <NewsCard article={article} key={article._id} inSearchResults={props.inSearchResults} />
         ))}
       </section>
     </div >

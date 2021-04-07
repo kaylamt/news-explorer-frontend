@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from '../SearchForm/SearchForm';
+import Header from '../Header/Header';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
@@ -79,7 +79,7 @@ function Main(props) {
         <span id="username-error" className="popup__error" />
       </PopupWithForm>
       <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
-      <SearchForm openSignInPopup={openSignInPopup} />
+      <Header openSignInPopup={openSignInPopup} />
       <About />
       <Footer />
     </div>

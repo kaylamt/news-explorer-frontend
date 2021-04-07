@@ -1,39 +1,98 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/header-logo.svg';
-import logoSavedNews from '../../images/logo-saved-news.svg';
-import Navigation from '../Navigation/Navigation'
-import { CurrentUserContext } from '../../contexts/CurrentUserContext'
+import Navigation from '../Navigation/Navigation';
+import SearchForm from '../SearchForm/SearchForm';
+import Preloader from '../Preloader/Preloader';
+import NewsCardList from '../NewsCardList/NewsCardList';
 
 function Header(props) {
-  const currentUser = React.useContext(CurrentUserContext);
 
-  function signedInButton() {
-    if (currentUser._id) {
+  const [articles, setArticles] = React.useState([]);
+  const [searchAttempted, setSearchAttempted] = React.useState(false);
+  const [searching, setSearching] = React.useState(false);
+
+
+  function handleSearch(query) {
+    setSearching(true);
+    setSearchAttempted(false);
+
+    if (query === "Nature") {
+      setArticles([
+        {
+          keyword: "Nature",
+          title: "Everyone Needs a Special 'Sit Spot' in Nature",
+          text: "Ever since I read Richard Louv's influential book, \"Last Child in the Woods, \" the idea of having a special \"sit spot\" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...",
+          date: "November 4, 2020",
+          source: "treehugger",
+          link: "https://www.treehugger.com/special-sit-spot-nature-5085811",
+          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.dailycompass.org%2Fwp-content%2Fuploads%2F2012%2F07%2Fwoods.jpeg&f=1&nofb=1",
+          _id: 1,
+        },
+        {
+          keyword: "Nature",
+          title: "Nature makes you better",
+          text: "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves.",
+          date: "February 19, 2019",
+          source: "national geographic",
+          link: "https://www.nationalgeographic.com/travel/article/partner-content-nature-makes-you-better",
+          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fthewowstyle.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fnature-images..jpg&f=1&nofb=1",
+          _id: 2,
+        },
+        {
+          keyword: "Yellowstone",
+          title: "Nostalgic Photos of Tourists in U.S. National Parks",
+          text: "Uri Løvevild Golman and Helle Løvevild Golman are National Geographic Explorers and conservation photographers who just completed a project and book they call their love letter to...",
+          date: "October 19, 2020",
+          source: "national geographic",
+          link: "https://www.nationalgeographic.com/travel/article/sightseer-american-tourists-in-national-parks",
+          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fphotographyblogger.net%2Fwp-content%2Fuploads%2F2017%2F07%2FYellowstone-Falls-%40dasuan.jpg&f=1&nofb=1",
+          _id: 3,
+        }
+      ])
+    } else {
+      setArticles([])
+    }
+    setTimeout(() => {
+      setSearching(false)
+      setSearchAttempted(true)
+    }, 1000);
+  }
+
+  function searchResults() {
+    if (articles.length > 0) {
       return (
-        <div className={`header__profile-container header__profile-container_${props.cssModifier}`}>
-          <span className={`header__profile-name header__profile-name_${props.cssModifier}`}>Elise</span>
-          <span className={`header__profile-logout header__profile-logout_${props.cssModifier}`} alt="logout" ></span>
+        <div className="search-form__results">
+          <NewsCardList articles={articles} inSearchResults={true} />
+          <button className="header__search-results">Show more</button>
         </div>
       )
-    } return <span className={`header__sign-in header__sign-in_${props.cssModifier}`} onClick={props.openSignInPopup}>Sign In</span>
+    } else if (searchAttempted) {
+      return (
+        <div className="search-not-found">Nothing found</div>
+      )
+    }
+    else if (searching) {
+      return <div className="preloader">
+        <Preloader isShown={searching} />
+      </div>
+    }
   }
 
   return (
-    <div className={`header header_${props.cssModifier}`}>
-      <div className="header__container">
-        <img src={logo} className={`header__logo header__logo_${props.cssModifier}`} alt="logo" />
-        <img src={logoSavedNews} className={`header__logo-saved-news header__logo-saved-news_${props.cssModifier}`} alt="logo" />
-        <div className={`header__links header__links_${props.cssModifier}`}>
-          <NavLink to="/" className={`header__home-link header__home-link_${props.cssModifier}`}>Home</NavLink>
-          {currentUser._id &&
-            <NavLink to="/saved-news" className={`header__saved-articles-link header__saved-articles-link_${props.cssModifier}`}>Saved articles</NavLink>
-          }
-          {signedInButton()}
-          <Navigation />
+    <>
+      <div className="search-form">
+        <Navigation cssModifier="home" openSignInPopup={props.openSignInPopup} />
+        <div className="search-form__content">
+          <h1 className="search-form__title">
+            What's going on in the world?
+          </h1>
+          <div className="search-form__subtitle">
+            Find the latest news on any topic and save them in your personal account.
+        </div>
+          <SearchForm onSearch={handleSearch} />
         </div>
       </div>
-    </div>
+      {searchResults()}
+    </>
   );
 }
 

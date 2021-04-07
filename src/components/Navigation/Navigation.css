@@ -1,29 +1,220 @@
-.navigation__menu {
+.active {
+  border-bottom: 3px solid #FFFFFF;
+}
+
+.header {
+  max-width: 1440px;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.header_saved-news {
+}
+
+.header__logo {
+  display: unset;
+}
+
+.header__logo_saved-news {
   display: none;
 }
 
-.navigation__list {
+.header__logo-saved-news {
   display: none;
-  background-color: #1A1B22;
 }
 
-.navigation__home-link {
+.header__logo-saved-news_saved-news {
+  display: unset;
+}
+
+.header__home-link_saved-news {
+   color: #1A1B22;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 26px;
+  width: calc(100% - 208px); 
+  margin: 0 auto;
+}
+
+.header__links_saved-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__home-link {
+  color: #FFFFFF;
+  margin-right: 40px;
+  padding-bottom: 23px;
+  cursor: pointer;
   text-decoration: none;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.header__home-link_saved-news {
+  padding-bottom: 0;
+  color: #1A1B22;
+  margin-right: 76px;
+}
+
+.header__sign-in {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 20px;
+  padding: 12px 50px;
+  width: 176px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.header__sign-in_saved-news {
+  display: none;
+}
+
+.header__profile-container_saved-news {
+  border: 1px solid #1A1B22;
+  border-radius: 35px;
+  padding: 12px 50px;
+  width: 112px;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__links_home {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.header__profile-container_home {
+  border: 1px solid #FFFFFF;
+  border-radius: 35px;
+  padding: 12px 50px;
+  width: 112px;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__profile-name_home {
   color: #FFFFFF;
 }
 
-.navigation__saved-articles-link {
-  text-decoration: none;
-  color: #FFFFFF;
-  display: none;
+.header__profile-name_saved-news {
+  display: unset;
+  margin-right: 15px;
+  font-size: 18px;
+  line-height: 1.3;
 }
 
-.navigation:hover .navigation__list {
-    display: unset;
+.header__profile-logout_home {
+  color: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../images/logout-home.svg);
 }
+
+.header__profile-logout_saved-news {
+  /* display: unset; */
+  width: 24px;
+  height: 24px;
+  background-image: url(../../images/logout.svg);
+}
+
+.header__saved-articles-link_saved-news {
+  display: unset;
+  color: #1A1B22;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-right: 64px;
+}
+
+.header__saved-articles-link_home {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-right: 64px;
+}
+
+.header__home-link_home {
+  margin: 0 76px 0 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__container {
+    width: calc(100% - 150px);
+    }
+  }
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    width: calc(100% - 80px);
+    }
+  .header__sign-in {
+    width: 152px;
+    }
+  .header__home-link {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-right: 16px;
+    }
+  .header__saved-articles-link {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-right: 16px;
+   }
+  }
+
+/* @media screen and (max-width: 500px) {
+  .header_popup-mobile {
+    visibility: hidden;
+  }
+} */
 
 @media screen and (max-width: 450px) {
-  .navigation__menu {
-   display: unset;
-  }
+  .header__container {
+    width: calc(100% - 10px);
+    }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    }
+
+  .header__sign-in {
+    display: none;
+    }
+
+
+  .header__home-link {
+    display: none;
+    }
+
+  .header__home-link_saved-news {
+    display: none;
+    }
+
+ .header__profile-container_saved-news {
+    display: none;
 }
+
+  .header__saved-articles-link {
+    display: none;
+    }
+  }

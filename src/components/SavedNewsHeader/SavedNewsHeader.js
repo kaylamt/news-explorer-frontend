@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
 
 function SavedNewsHeader(props) {
   return (
     <>
-      <Header cssModifier="saved-news" />
+      <Navigation cssModifier="saved-news" />
       <div className="saved-news-header">
         <p className="saved-news-header__subtitle">Saved articles</p>
         <h1 className="saved-news-header__title">Elise, you have {props.articleCount} saved articles</h1>
