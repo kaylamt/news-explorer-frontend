@@ -6,7 +6,7 @@ function RegistrationPopup(props) {
       <div className="popup__container" >
         <button aria-label="close button" className="popup__close-button" type="reset" onClick={props.onClose} />
         <h2 className="popup__title">{props.title}</h2>
-        <span className="form__link" onClick={props.onFormLinkClick} >Sign In</span>
+        <p className="form__link" onClick={props.onFormLinkClick} >Sign In</p>
       </div>
     </div>
   );

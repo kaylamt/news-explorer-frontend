@@ -59,7 +59,7 @@ function Main(props) {
   }, [])
 
   return (
-    <div>
+    <>
       <PopupWithForm onSubmit={handleSignIn} onClose={closeAllPopups} isOpen={isSignInPopupOpen} buttonText='Sign In' onFormLinkClick={openSignUpPopup} otherLink='Sign up' name='sign-in' title='Sign In'>
         <p className="form__input-title">Email</p>
         <input id="email" type="email" className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
@@ -82,7 +82,7 @@ function Main(props) {
       <Header openSignInPopup={openSignInPopup} />
       <About />
       <Footer />
-    </div>
+    </>
   );
 };
 

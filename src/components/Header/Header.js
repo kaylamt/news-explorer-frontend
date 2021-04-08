@@ -72,9 +72,9 @@ function Header(props) {
       return (
         <div className="header__search-not-found">
           <img className="header__search-not-found-image" src={notFound} alt="not-found"></img>
-          <div className="header__search-not-found-title">Nothing found</div>
-          <div className="header__search-not-found-text">Sorry, but nothing matched
-your search terms.</div>
+          <p className="header__search-not-found-title">Nothing found</p>
+          <p className="header__search-not-found-text">Sorry, but nothing matched
+your search terms.</p>
         </div>
       )
     }
@@ -93,9 +93,9 @@ your search terms.</div>
           <h1 className="search-form__title">
             What's going on in the world?
           </h1>
-          <div className="search-form__subtitle">
+          <p className="search-form__subtitle">
             Find the latest news on any topic and save them in your personal account.
-        </div>
+        </p>
           <SearchForm onSearch={handleSearch} />
         </div>
       </div>
