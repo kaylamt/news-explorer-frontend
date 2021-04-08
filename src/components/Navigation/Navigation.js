@@ -13,7 +13,9 @@ function Navigation(props) {
           <span className={`navigation__profile-logout navigation__profile-logout_${props.cssModifier}`} alt="logout" ></span>
         </div>
       )
-    } return <span className={`navigation__sign-in navigation__sign-in_${props.cssModifier}`} onClick={props.openSignInPopup}>Sign In</span>
+    } return (
+      <span className={`navigation__sign-in navigation__sign-in_${props.cssModifier}`} onClick={props.openSignInPopup}>Sign In</span>
+    )
   }
 
   function openMobileMenu() {
