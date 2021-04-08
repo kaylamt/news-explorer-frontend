@@ -87,13 +87,13 @@ your search terms.</p>
 
   return (
     <>
-      <div className="search-form">
+      <div className="header">
         <Navigation cssModifier="home" openSignInPopup={props.openSignInPopup} />
-        <div className="search-form__content">
-          <h1 className="search-form__title">
+        <div className="header__search-form-content">
+          <h1 className="header__search-form-title">
             What's going on in the world?
           </h1>
-          <p className="search-form__subtitle">
+          <p className="header__search-form-subtitle">
             Find the latest news on any topic and save them in your personal account.
         </p>
           <SearchForm onSearch={handleSearch} />
