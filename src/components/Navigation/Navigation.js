@@ -28,13 +28,13 @@ function Navigation(props) {
       <div className="navigation__container">
         <span className={`navigation__logo navigation__logo_${props.cssModifier}`} alt="logo" />
         <span className={`navigation__logo-saved-news navigation__logo-saved-news_${props.cssModifier}`} alt="logo" />
-        <div className={`navigation__links navigation__links_${props.cssModifier}`}>
+        <ul className={`navigation__links navigation__links_${props.cssModifier}`}>
           <NavLink exact to="/" activeClassName="home-active" className={`navigation__home-link navigation__home-link_${props.cssModifier}`}>Home</NavLink>
           {currentUser._id &&
             <NavLink to="/saved-news" activeClassName="saved-articles-active" className={`navigation__saved-articles-link navigation__saved-articles-link_${props.cssModifier}`}>Saved articles</NavLink>
           }
           {signedInButton()}
-        </div>
+        </ul>
       </div>
       <div className={`navigation__menu navigation__menu_${props.cssModifier}`}>
         <span className={`navigation__menu-img navigation__menu-img_${props.cssModifier}`} alt="menu" onClick={openMobileMenu} ></span>

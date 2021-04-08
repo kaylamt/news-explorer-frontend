@@ -44,11 +44,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .navigation__links_home {
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .navigation__home-link {
