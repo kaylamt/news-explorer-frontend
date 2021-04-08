@@ -1,16 +1,15 @@
 import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
-//flexbox container
 
 function NewsCardList(props) {
   return (
-    <div className="news-card-list__container">
-      <section className="news-card-list">
+    <section className="news-card-list">
+      <div className="news-card-list__container">
         {props.articles.map((article) => (
           <NewsCard article={article} key={article._id} inSearchResults={props.inSearchResults} />
         ))}
-      </section>
-    </div >
+      </div>
+    </section >
   );
 };
 
