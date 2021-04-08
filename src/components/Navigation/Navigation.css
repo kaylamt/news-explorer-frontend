@@ -134,7 +134,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 13px; */
 }
 
 .navigation__profile-name_home {
@@ -211,17 +210,17 @@
 @media screen and (max-width: 850px) {
   .navigation__container {
     width: calc(100% - 80px);
-    }
+  }
 
   .navigation__sign-in {
     width: 100px;
-    }
+  }
 
   .navigation__home-link {
     font-size: 16px;
     line-height: 1.5;
     margin-right: 16px;
-    }
+  }
 
   .navigation__saved-articles-link {
     font-size: 16px;
@@ -239,7 +238,6 @@
   .navigation__sign-in {
     display: none;
   }
-
 
   .navigation__home-link {
     display: none;
@@ -264,6 +262,7 @@
    .navigation__menu {
     background-color: #1A1B22;
   }
+  
   .navigation__menu-img {
     display: unset;
     position: absolute;

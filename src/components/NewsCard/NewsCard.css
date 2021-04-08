@@ -83,7 +83,7 @@
 }
 
 .news-card__button-container:hover .news-card__popup {
-     visibility: visible;
+  visibility: visible;
 }
 
 .news-card__image {

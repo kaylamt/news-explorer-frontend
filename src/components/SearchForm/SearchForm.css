@@ -45,10 +45,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .search-form__search-field{
+  .search-form__search-field {
     width: 228px;
   }
-  .search-form__search-button{
+  
+  .search-form__search-button {
     width: 160px;
   }
 }
