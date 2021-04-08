@@ -37,12 +37,12 @@ function NewsCard(props) {
 
   return (
     <div className="news-card">
-      <div className="news-card__image-container">
+      <ul className="news-card__image-info">
         <p className="news-card__keyword">{props.article.keyword}</p>
         {actionButton()}
         <img className="news-card__image" alt={props.article.title} src={props.article.image} />
-      </div>
-      <div className="news-card__info-container">
+      </ul>
+      <ul className="news-card__info">
         <div className="news-card__title-container">
           <p className="news-card__date">{props.article.date}</p>
           <h2 className="news-card__title">{props.article.title}</h2>
@@ -50,7 +50,7 @@ function NewsCard(props) {
         <p className="news-card__text">{props.article.text}</p>
         <a className="news-card__link" href={props.article.link}>{props.article.source}
         </a>
-      </div>
+      </ul>
     </div>
   );
 };

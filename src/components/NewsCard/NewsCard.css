@@ -3,8 +3,10 @@
   background-color: #FFFFFF;
 }
 
-.news-card__image-container {
+.news-card__image-info {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .news-card__keyword {
@@ -92,12 +94,13 @@
   border-top-right-radius: 10px;
 }
 
-.news-card__info-container {
+.news-card__info {
   min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 16px 12px 16px;
+  padding: 0; 
 }
 
 .news-card__date {
