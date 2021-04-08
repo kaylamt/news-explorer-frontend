@@ -89,7 +89,7 @@
   margin: 0 0 28px 0;
   cursor: pointer;
   color: #2F71E5;
-  font-family: Inter;
+  font-family: Inter, Roboto, Roboto-Slab, Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.2;  
 }

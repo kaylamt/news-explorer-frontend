@@ -109,7 +109,7 @@
 
 .news-card__title {
   font-size: 22px;
-  font-family: Roboto-Slab;
+  font-family: Roboto-Slab, Roboto, Inter, Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin: 0 0 10px 0;
   width: 352px;
