@@ -46,3 +46,19 @@
   src: url("./roboto-slab-700.woff2") format('woff2');
 }
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./inter-400-regular.woff") format('woff');
+  src: url("./inter-400-regular.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./inter-500.woff") format('woff');
+  src: url("./inter-500.woff2") format('woff2');
+}
+
