@@ -164,6 +164,13 @@
     right: 8px;
     top: 8px;
   }
+
+  .news-card__popup {
+    right: 50px;
+    top: 8px;
+    width: 150px;
+    height: 40px; 
+  }
 }
 
 @media screen and (max-width: 400px) {
