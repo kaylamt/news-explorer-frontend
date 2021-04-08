@@ -5,6 +5,7 @@
 
 .news-card__image-container {
   position: relative;
+  /* z-index: -1; */
 }
 
 .news-card__keyword {
@@ -111,7 +112,9 @@
   font-family: Roboto-Slab;
   font-weight: 400;
   margin: 0 0 10px 0;
-  }
+  width: 352px;
+  height: 60px;
+}
 
 .news-card__text-container {
     display: flex;
@@ -121,10 +124,21 @@
 
 .news-card__text {
   font-size: 16px;
+  margin: 0 0 18px 0;
 }
 
 .news-card__link {
   text-decoration: none;
   color: #B6BCBF;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 500px) {
+  .news-card__title {
+    width: 256px;
+    height: 48px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
