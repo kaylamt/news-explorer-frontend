@@ -43,7 +43,7 @@ function Navigation(props) {
           {currentUser._id &&
             <Link to="/saved-news" className="navigation__menu-saved-articles-link" >Saved articles</Link>
           }
-          <span className="navigation__menu-sign-in">Sign In</span>
+          <span onClick={props.openSignInPopup} className="navigation__menu-sign-in">Sign In</span>
         </div>
       </div>
     </div>
