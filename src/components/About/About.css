@@ -1,13 +1,13 @@
 .about {
   display: flex;
-  max-width: 1440px;
+  max-width: 3000px;
+  margin: 0 auto 0 100px;
 }
 
 .about__container {
   display: flex;
   justify-content: center;
   width: calc(100% - 320px);
-  margin: 0 auto 0 auto;
 }
 
 .about__author-image {
@@ -38,6 +38,9 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .about {
+    margin: 0 auto 0 auto;
+  }
   .about__container {
     width: calc(100% - 80px);
   }

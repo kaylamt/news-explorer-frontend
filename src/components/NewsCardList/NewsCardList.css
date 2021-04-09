@@ -7,7 +7,7 @@
 
 .news-card-list__container {
   display: grid;
-  max-width: 1440px;
+  max-width: 3000px;
   padding: 62px 0 62px 0;
   grid-template-columns: 27% 27% 27%;
   grid-gap: 16px;
