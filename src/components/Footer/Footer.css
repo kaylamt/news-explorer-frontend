@@ -34,6 +34,17 @@
   text-decoration: none;
   color: #1A1B22;
   cursor: pointer;
+  list-style: none;
+}
+
+.footer__link-home {
+  color: #1A1B22;
+  text-decoration: none;
+}
+
+.footer__link-practicum {
+  color: #1A1B22;
+  text-decoration: none;
 }
 
 .footer__link:hover {
@@ -44,10 +55,13 @@
 .footer__social-links {
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .footer__social-link {
-  margin-left: 24px;
+  margin: 0 0 0 24px;
+  list-style: none;
+  padding: 0;
 }
 
 .footer__social-icon {
@@ -83,7 +97,7 @@
 
   .footer__copyright {
     position: relative;
-    bottom: -100px;
+    bottom: -120px;
     text-align: center;
   }
 
@@ -96,6 +110,7 @@
 
   .footer__link{
     margin-top: 0;
+    margin-bottom: 20px;
   }
 
   .footer__page-links{

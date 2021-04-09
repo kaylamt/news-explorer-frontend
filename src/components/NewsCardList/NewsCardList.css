@@ -11,14 +11,12 @@
 
 @media screen and (max-width: 1200px) {
   .news-card-list {
-    width: calc(100% - 20px);
     grid-gap: 8px;
   }
 }
 
 @media screen and (max-width: 850px) {
   .news-card-list {
-    width: calc(100% - 5px);
     grid-gap: 8px;
   }
 }
@@ -26,7 +24,6 @@
 @media screen and (max-width: 500px) {
   .news-card-list {
     margin: 0 auto;
-    width: calc(100% - 32px);
     grid-template-columns: 100%;
     grid-gap: 10px;
   }
