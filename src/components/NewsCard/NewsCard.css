@@ -151,6 +151,7 @@
   }
 
   .news-card__image {
+    /* width: auto; */
     height: 150px;
   }
 

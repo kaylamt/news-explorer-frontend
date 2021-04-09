@@ -119,6 +119,13 @@
 }
 
 @media screen and (max-width: 500px) {
+  .header {
+    background: url(../../images/mobile-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
  .header__search-form-title {
     font-size: 36px;
     line-height: 1.1;
