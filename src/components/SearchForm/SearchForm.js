@@ -14,7 +14,7 @@ function SearchForm(props) {
   }
 
   return (
-    <form action="#" className="search-form__search-container" onSubmit={search} >
+    <form action="#" className="search-form" onSubmit={search} >
       <input name="query" className="search-form__search-field" placeholder="Enter topic" value={query} onChange={handleQueryChange} required />
       <button aria-label="search button" className="search-form__search-button" type="submit">Search</button>
     </form>

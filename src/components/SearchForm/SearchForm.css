@@ -1,4 +1,4 @@
-.search-form__search-container {
+.search-form {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -48,14 +48,14 @@
   .search-form__search-field {
     width: 228px;
   }
-  
+
   .search-form__search-button {
     width: 160px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .search-form__search-container {
+  .search-form {
     flex-direction: column;
     background: none;
     width: 288px;
