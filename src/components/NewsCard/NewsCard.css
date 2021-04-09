@@ -1,6 +1,7 @@
 .news-card {
   border-radius: 10px;
   background-color: #FFFFFF;
+  list-style: none;
 }
 
 .news-card__image-info {
