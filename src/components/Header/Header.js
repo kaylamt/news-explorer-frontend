@@ -79,9 +79,11 @@ your search terms.</p>
       )
     }
     else if (searching) {
-      return <div className="preloader">
-        <Preloader isShown={searching} />
-      </div>
+      return (
+        <div className="preloader">
+          <Preloader isShown={searching} />
+        </div>
+      )
     }
   }
 
