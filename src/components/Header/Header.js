@@ -61,19 +61,19 @@ function Header(props) {
   function searchResults() {
     if (articles.length > 0) {
       return (
-        <div className="header__search-form-results">
+        <div className="search-results">
           <NewsCardList articles={articles} inSearchResults={true} />
-          <div className="header__search-results-button-container">
-            <button className="header__search-results-button">Show more</button>
+          <div className="search-results__button-container">
+            <button className="search-results__button">Show more</button>
           </div>
         </div>
       )
     } else if (searchAttempted) {
       return (
-        <div className="header__search-not-found">
-          <img className="header__search-not-found-image" src={notFound} alt="not-found"></img>
-          <p className="header__search-not-found-title">Nothing found</p>
-          <p className="header__search-not-found-text">Sorry, but nothing matched
+        <div className="search-not-found">
+          <img className="search-not-found__image" src={notFound} alt="not-found"></img>
+          <p className="search-not-found__title">Nothing found</p>
+          <p className="search-not-found__text">Sorry, but nothing matched
 your search terms.</p>
         </div>
       )
