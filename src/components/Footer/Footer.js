@@ -10,11 +10,11 @@ function Footer() {
         <p className="footer__copyright">© {new Date().getFullYear()} Supersite, Powered by News API</p>
         <div className="footer__links">
           <ul className="footer__page-links">
-            <li className="footer__link">
-              <Link to="/" className="footer__link-home">Home</Link>
+            <li className="footer__page-link">
+              <Link to="/" className="footer__page-link-home">Home</Link>
             </li>
-            <li className="footer__link">
-              <a className="footer__link-practicum" href="https://practicum.yandex.com/web/" target="_blank" rel="noreferrer">Practicum by Yandex</a>
+            <li className="footer__page-link">
+              <a className="footer__page-link-practicum" href="https://practicum.yandex.com/web/" target="_blank" rel="noreferrer">Practicum by Yandex</a>
             </li>
           </ul>
           <ul className="footer__social-links">

@@ -29,7 +29,7 @@
   padding: 0;
 }
 
-.footer__link {
+.footer__page-link {
   margin-right: 40px;
   text-decoration: none;
   color: #1A1B22;
@@ -37,17 +37,17 @@
   list-style: none;
 }
 
-.footer__link-home {
+.footer__page-link-home {
   color: #1A1B22;
   text-decoration: none;
 }
 
-.footer__link-practicum {
+.footer__page-link-practicum {
   color: #1A1B22;
   text-decoration: none;
 }
 
-.footer__link:hover {
+.footer__page-link:hover {
   opacity: 0.6;
   transition: 0.3s;
 }
@@ -78,7 +78,7 @@
     width: calc(100% - 80px);
   }
 
-  .footer__link {
+  .footer__page-link {
     margin-right: 20px;
   }
 
@@ -108,7 +108,7 @@
     justify-content: space-around;
   }
 
-  .footer__link{
+  .footer__page-link {
     margin-top: 0;
     margin-bottom: 20px;
   }
