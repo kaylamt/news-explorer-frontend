@@ -27,6 +27,12 @@
   background-repeat: no-repeat;
 }
 
+.navigation__link {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .navigation__home-link_saved-news {
   color: #1A1B22;
 }
