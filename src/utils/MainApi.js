@@ -21,7 +21,7 @@ class MainApi {
   }
 
   authorize({ email, password }) {
-    return fetch(`${this._baseUrl}/signin`, {
+    return fetch(`${this._baseUrl}/api/signin`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({

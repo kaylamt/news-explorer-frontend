@@ -12,8 +12,25 @@ function Main(props) {
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
 
-  function handleSignIn(e) {
-    // e.preventDefault();
+  function handleSignIn(data) {
+    // auth.authorize(data).then(
+    //   (login) => {
+    //     setLoggedIn(true);
+    //     setEmail(data.email);
+    //     history.push('/');
+    //     localStorage.setItem('token', login.token);
+    //     loadPageData();
+    //   },
+    // )
+    //   .catch((err) => {
+    //     setInfoTooltipType('error');
+    //     setInfoTooltipMessage('Oops, something went wrong! Please try again.');
+    //     console.log(err);
+    //   });
+    mainApi.authorize(data)
+      .then((res) => {
+        debugger
+      })
     closeAllPopups();
     props.onLogin();
   }
