@@ -5,6 +5,8 @@ import Footer from '../Footer/Footer';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import RegistrationPopup from '../RegistrationPopup/RegistrationPopup';
 import Register from '../Register/Register';
+import MainApi from '../../utils/MainApi';
+import mainApi from '../../utils/MainApi';
 
 function Main(props) {
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
@@ -18,6 +20,23 @@ function Main(props) {
   }
 
   function handleSignUp(data) {
+    // auth.register(data)
+    //   .then(() => {
+    //     setInfoTooltipType('success');
+    //     setInfoTooltipMessage('Success! You have now been registered.');
+    //     setTimeout(() => {
+    //       history.push('/signin');
+    //     }, 2000);
+    //   })
+    //   .catch((err) => {
+    //     setInfoTooltipType('error');
+    //     setInfoTooltipMessage('Oops, something went wrong! Please try again.');
+    //     console.log(err);
+    //   });
+    mainApi.register(data)
+      .then((res) => {
+        debugger
+      })
     closeAllPopups();
     setIsRegistrationPopupOpen(true);
   }

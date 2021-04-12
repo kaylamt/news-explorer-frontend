@@ -7,13 +7,14 @@ class MainApi {
     this._headers = headers;
   }
 
-  register({ email, password }) {
-    return fetch(`${this._baseUrl}/signup`, {
+  register({ email, password, username }) {
+    return fetch(`${this._baseUrl}/api/signup`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         password,
         email,
+        name: username,
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.statusText))));

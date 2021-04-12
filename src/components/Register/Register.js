@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import PopupWithForm from './PopupWithForm';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function Register(props) {
   const [email, setEmail] = React.useState('');
@@ -39,4 +38,4 @@ function Register(props) {
   );
 }
 
-export default withRouter(Register);
+export default Register;
