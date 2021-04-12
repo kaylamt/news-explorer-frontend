@@ -4,6 +4,7 @@ import About from '../About/About';
 import Footer from '../Footer/Footer';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import RegistrationPopup from '../RegistrationPopup/RegistrationPopup';
+import Register from '../Register/Register';
 
 function Main(props) {
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
@@ -16,8 +17,7 @@ function Main(props) {
     props.onLogin();
   }
 
-  function handleSignUp(e) {
-    e.preventDefault();
+  function handleSignUp(data) {
     closeAllPopups();
     setIsRegistrationPopupOpen(true);
   }
@@ -67,17 +67,7 @@ function Main(props) {
         <input id="password" type="password" className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
         <span id="password-error" className="popup__error" />
       </PopupWithForm>
-      <PopupWithForm onSubmit={handleSignUp} onClose={closeAllPopups} isOpen={isSignUpPopupOpen} buttonText='Sign Up' onFormLinkClick={openSignInPopup} otherLink='Sign in' name='sign-up' title='Sign Up'>
-        <p className="form__input-title">Email</p>
-        <input id="email" type="email" className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
-        <span id="email-error" className="popup__error" />
-        <p className="form__input-title">Password</p>
-        <input id="password" type="password" className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
-        <span id="password-error" className="popup__error" />
-        <p className="form__input-title">Username</p>
-        <input id="username" type="username" className="form__input form__input_field_username" name="username" placeholder="Enter username" minLength={2} maxLength={200} required />
-        <span id="username-error" className="popup__error" />
-      </PopupWithForm>
+      <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
       <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
       <Header openSignInPopup={openSignInPopup} />
       <About />
