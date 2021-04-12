@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Main from '../Main/Main';
 import SavedNews from '../SavedNews/SavedNews';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
@@ -20,8 +21,11 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter >
         <Switch>
+
           <Main exact path='/' onLogin={handleLogIn} />
-          <SavedNews exact path='/saved-news' />
+          <ProtectedRoute exact path='/saved-news' >
+            <SavedNews exact path='/saved-news' />
+          </ProtectedRoute>
         </Switch>
       </BrowserRouter>
     </CurrentUserContext.Provider>
