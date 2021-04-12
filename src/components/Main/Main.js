@@ -2,10 +2,9 @@ import React from 'react';
 import Header from '../Header/Header';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
-import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import RegistrationPopup from '../RegistrationPopup/RegistrationPopup';
 import Register from '../Register/Register';
-import MainApi from '../../utils/MainApi';
+import Login from '../Login/Login';
 import mainApi from '../../utils/MainApi';
 
 function Main(props) {
@@ -14,7 +13,7 @@ function Main(props) {
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
 
   function handleSignIn(e) {
-    e.preventDefault();
+    // e.preventDefault();
     closeAllPopups();
     props.onLogin();
   }
@@ -79,13 +78,7 @@ function Main(props) {
 
   return (
     <>
-      <PopupWithForm onSubmit={handleSignIn} onClose={closeAllPopups} isOpen={isSignInPopupOpen} buttonText='Sign In' onFormLinkClick={openSignUpPopup} otherLink='Sign up' name='sign-in' title='Sign In'>
-        <p className="form__input-title">Email</p>
-        <input id="email" type="email" className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
-        <p className="form__input-title">Password</p>
-        <input id="password" type="password" className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
-        <span id="password-error" className="popup__error" />
-      </PopupWithForm>
+      <Login closeAllPopups={closeAllPopups} openSignUpPopup={openSignUpPopup} onLogin={handleSignIn} isSignInPopupOpen={isSignInPopupOpen} />
       <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
       <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
       <Header openSignInPopup={openSignInPopup} />
