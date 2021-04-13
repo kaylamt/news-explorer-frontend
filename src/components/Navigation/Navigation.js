@@ -9,7 +9,7 @@ function Navigation(props) {
     if (currentUser._id) {
       return (
         <div className={`navigation__profile-container navigation__profile-container_${props.cssModifier}`}>
-          <span className={`navigation__profile-name navigation__profile-name_${props.cssModifier}`}>Elise</span>
+          <span className={`navigation__profile-name navigation__profile-name_${props.cssModifier}`}>{currentUser.name}</span>
           <span className={`navigation__profile-logout navigation__profile-logout_${props.cssModifier}`} alt="logout" ></span>
         </div>
       )

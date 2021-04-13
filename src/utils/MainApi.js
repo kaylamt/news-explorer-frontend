@@ -7,6 +7,17 @@ class MainApi {
     this._headers = headers;
   }
 
+  // getArticleList() {
+  //   return fetch(`${this._baseUrl}/api/articles`, {
+  //     headers: this._headers,
+  //   })
+  //     .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
+  // }
+
+  // getAppInfo() {
+  //   return Promise.all([this.getUserInfo(), this.getArticleList()]);
+  // }
+
   register({ email, password, username }) {
     return fetch(`${this._baseUrl}/api/signup`, {
       method: 'POST',
@@ -33,7 +44,7 @@ class MainApi {
   }
 
   validate(token) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/api/users/me`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,6 +54,7 @@ class MainApi {
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.statusText))));
   }
 }
+
 
 const { NODE_ENV } = process.env;
 const baseUrl = NODE_ENV === 'production' ? 'https://api.kaylamt.students.nomoreparties.site' : 'http://localhost:3000';

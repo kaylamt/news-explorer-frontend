@@ -5,12 +5,6 @@ function Login(props) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  React.useEffect(() => {
-    if (props.loggedIn) {
-      props.history.push('/');
-    }
-  }, [props.loggedIn]);
-
   function handlePasswordChange(e) {
     setPassword(e.target.value);
   }
