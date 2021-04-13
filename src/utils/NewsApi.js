@@ -25,13 +25,16 @@ class NewsApi {
     return Promise.all([this.getUserInfo(), this.getCardList()]);
   }
 
-  addCard({ name, link }) {
+  addArticle({ source, title, date, description, image }) {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: 'POST',
       body: JSON.stringify({
-        name,
-        link,
+        source,
+        title,
+        date,
+        description,
+        image
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));

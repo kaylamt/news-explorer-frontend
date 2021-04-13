@@ -51,7 +51,7 @@ function Main(props) {
     //   });
     mainApi.register(data)
       .then((res) => {
-        debugger
+        // debugger
       })
     closeAllPopups();
     setIsRegistrationPopupOpen(true);

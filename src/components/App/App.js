@@ -23,9 +23,9 @@ function App() {
         <Switch>
 
           <Main exact path='/' onLogin={handleLogIn} />
-          <ProtectedRoute exact path='/saved-news' >
-            <SavedNews exact path='/saved-news' />
-          </ProtectedRoute>
+          {/* <ProtectedRoute exact path='/saved-news' > */}
+          <SavedNews exact path='/saved-news' />
+          {/* </ProtectedRoute> */}
         </Switch>
       </BrowserRouter>
     </CurrentUserContext.Provider>
