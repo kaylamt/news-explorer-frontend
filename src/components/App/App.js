@@ -13,7 +13,7 @@ import mainApi from '../../utils/MainApi';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
-  // const [articles, setArticles] = React.useState([]);
+  const [articles, setArticles] = React.useState([]);
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
@@ -75,19 +75,17 @@ function App() {
     //   });
     mainApi.register(data)
       .then((res) => {
-        // debugger
+        closeAllPopups();
+        setIsRegistrationPopupOpen(true);
       })
-    closeAllPopups();
-    setIsRegistrationPopupOpen(true);
   }
 
-  // function loadPageData() {
-  //   mainApi.getAppInfo().then((res) => {
-  //     const [userInfo, remoteCards] = res;
-  //     setCards(remoteCards);
-  //     setCurrentUser(userInfo);
-  //   }).catch((error) => console.log(error));
-  // }
+  function loadArticles() {
+    mainApi.getArticleInfo().then((res) => {
+      const remoteArticles = res;
+      setArticles(remoteArticles);
+    }).catch((error) => console.log(error));
+  }
 
   React.useEffect(() => {
     const keyClose = (e) => {
@@ -118,7 +116,7 @@ function App() {
         <Switch>
           <Main exact path='/' openSignInPopup={openSignInPopup} />
           <ProtectedRoute path='/saved-news' currentUser={currentUser} >
-            <SavedNews path='/saved-news' />
+            <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} />
           </ProtectedRoute>
         </Switch>
       </BrowserRouter>

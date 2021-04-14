@@ -7,16 +7,16 @@ class MainApi {
     this._headers = headers;
   }
 
-  // getArticleList() {
-  //   return fetch(`${this._baseUrl}/api/articles`, {
-  //     headers: this._headers,
-  //   })
-  //     .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  // }
+  getArticles() {
+    return fetch(`${this._baseUrl}/api/articles`, {
+      headers: this._headers,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
+  }
 
-  // getAppInfo() {
-  //   return Promise.all([this.getUserInfo(), this.getArticleList()]);
-  // }
+  getArticleInfo() {
+    return Promise.all(this.getArticles());
+  }
 
   register({ email, password, username }) {
     return fetch(`${this._baseUrl}/api/signup`, {

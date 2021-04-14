@@ -21,7 +21,7 @@ class NewsApi {
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
 
-  getAppInfo() {
+  getArticleInfo() {
     return Promise.all([this.getUserInfo(), this.getCardList()]);
   }
 
