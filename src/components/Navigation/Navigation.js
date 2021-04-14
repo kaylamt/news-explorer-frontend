@@ -1,14 +1,18 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Navigation(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
+  function signOut() {
+    props.onSignOut(props.history);
+  }
+
   function signedInButton() {
     if (currentUser._id) {
       return (
-        <div className={`navigation__profile-container navigation__profile-container_${props.cssModifier}`} onClick={props.onSignOut} >
+        <div className={`navigation__profile-container navigation__profile-container_${props.cssModifier}`} onClick={signOut} >
           <span className={`navigation__profile-name navigation__profile-name_${props.cssModifier}`}>{currentUser.name}</span>
           <span className={`navigation__profile-logout navigation__profile-logout_${props.cssModifier}`} alt="logout" ></span>
         </div>
@@ -56,4 +60,4 @@ function Navigation(props) {
   );
 }
 
-export default Navigation;
+export default withRouter(Navigation);

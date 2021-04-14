@@ -95,7 +95,8 @@ function App() {
       }).catch((error) => console.log(error));
   }
 
-  function handleSignOut() {
+  function handleSignOut(history) {
+    history.push('/');
     setCurrentUser({});
     localStorage.removeItem('token');
   }
