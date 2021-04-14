@@ -1,14 +1,27 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-//change loggedIn
+function ProtectedRoute(props) {
+  const currentUser = React.useContext(CurrentUserContext);
+  const handleValidate = props.handleValidate;
+  const path = props.path;
+  const history = props.history;
 
-const ProtectedRoute = (props) => (
-  <Route>
-    {
-      () => (props.currentUser._id ? props.children : <Redirect to='/' />)
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!currentUser._id) {
+      handleValidate(token, history, path)
     }
-  </Route>
-);
+  }, [handleValidate, currentUser, history, path]);
 
-export default ProtectedRoute;
+  return (
+    <Route>
+      {
+        () => (props.currentUser._id ? props.children : <Redirect to='/' />)
+      }
+    </Route>
+  )
+};
+
+export default withRouter(ProtectedRoute);

@@ -5,9 +5,10 @@ import Footer from '../Footer/Footer';
 
 
 function Main(props) {
+
   return (
     <>
-      <Header openSignInPopup={props.openSignInPopup} />
+      <Header openSignInPopup={props.openSignInPopup} onSignOut={props.onSignOut} />
       <About />
       <Footer />
     </>

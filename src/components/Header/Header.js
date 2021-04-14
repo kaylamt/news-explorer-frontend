@@ -90,7 +90,7 @@ your search terms.</p>
   return (
     <>
       <div className="header">
-        <Navigation cssModifier="home" openSignInPopup={props.openSignInPopup} />
+        <Navigation cssModifier="home" openSignInPopup={props.openSignInPopup} onSignOut={props.onSignOut} />
         <div className="header__search-form-content">
           <h1 className="header__search-form-title">
             What's going on in the world?

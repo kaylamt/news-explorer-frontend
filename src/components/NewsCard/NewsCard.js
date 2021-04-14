@@ -4,6 +4,10 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 function NewsCard(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
+  function deleteArticle() {
+    props.onDeleteArticleClick(props.article._id);
+  }
+
   function actionButton() {
     if (props.inSearchResults) {
       if (currentUser._id) {
@@ -23,7 +27,7 @@ function NewsCard(props) {
       }
     } return (
       <div className="news-card__button-container">
-        <button aria-label="delete button" className="news-card__button news-card__button_delete" type="button" />
+        <button aria-label="delete button" className="news-card__button news-card__button_delete" type="button" onClick={deleteArticle} />
         <span className="news-card__popup">Remove from saved</span>
       </div>
     )

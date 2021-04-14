@@ -19,28 +19,28 @@ function App() {
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
 
   function handleLogIn(data) {
-    // auth.authorize(data).then(
-    //   (login) => {
-    //     setLoggedIn(true);
-    //     setEmail(data.email);
-    //     history.push('/');
-    //     localStorage.setItem('token', login.token);
-    //     loadPageData();
-    //   },
-    // )
-    //   .catch((err) => {
-    //     setInfoTooltipType('error');
-    //     setInfoTooltipMessage('Oops, something went wrong! Please try again.');
-    //     console.log(err);
-    //   });
     mainApi.authorize(data)
-      .then((res) => {
-        mainApi.validate(res.token)
+      .then((login) => {
+        mainApi.validate(login.token)
           .then((user) => {
+            localStorage.setItem('token', login.token);
             closeAllPopups();
             setCurrentUser(user)
           })
       })
+  }
+
+  function handleValidate(token, history, path) {
+    if (token) {
+      mainApi.validate(token)
+        .then((user) => {
+          setCurrentUser(user)
+          history.push(path)
+        })
+
+    } else {
+      openSignInPopup()
+    }
   }
 
   function closeAllPopups() {
@@ -81,11 +81,34 @@ function App() {
   }
 
   function loadArticles() {
-    mainApi.getArticleInfo().then((res) => {
+    mainApi.getArticles().then((res) => {
       const remoteArticles = res;
       setArticles(remoteArticles);
     }).catch((error) => console.log(error));
   }
+
+  function handleArticleDelete(articleId) {
+    mainApi.deleteArticle(articleId)
+      .then((deletedArticle) => {
+        const newArticles = articles.filter((a) => a._id !== deletedArticle._id);
+        setArticles(newArticles)
+      }).catch((error) => console.log(error));
+  }
+
+  function handleSignOut() {
+    setCurrentUser({});
+    localStorage.removeItem('token');
+  }
+
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!currentUser._id && token) {
+      mainApi.validate(token)
+        .then((user) => {
+          setCurrentUser(user)
+        })
+    }
+  }, [currentUser._id]);
 
   React.useEffect(() => {
     const keyClose = (e) => {
@@ -114,9 +137,9 @@ function App() {
         <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
         <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
         <Switch>
-          <Main exact path='/' openSignInPopup={openSignInPopup} />
-          <ProtectedRoute path='/saved-news' currentUser={currentUser} >
-            <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} />
+          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} />
+          <ProtectedRoute path='/saved-news' currentUser={currentUser} handleValidate={handleValidate} >
+            <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} onDeleteArticleClick={handleArticleDelete} onSignOut={handleSignOut} />
           </ProtectedRoute>
         </Switch>
       </BrowserRouter>

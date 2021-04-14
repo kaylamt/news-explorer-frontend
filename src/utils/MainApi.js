@@ -14,14 +14,20 @@ class MainApi {
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
 
-  getArticleInfo() {
-    return Promise.all(this.getArticles());
+  deleteArticle(articleId) {
+    return fetch(`${this._baseUrl}/api/articles/${articleId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
 
   register({ email, password, username }) {
     return fetch(`${this._baseUrl}/api/signup`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         password,
         email,
@@ -34,7 +40,9 @@ class MainApi {
   authorize({ email, password }) {
     return fetch(`${this._baseUrl}/api/signin`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         email,
         password,
@@ -62,6 +70,7 @@ const baseUrl = NODE_ENV === 'production' ? 'https://api.kaylamt.students.nomore
 const mainApi = new MainApi({
   baseUrl,
   headers: {
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',
   },
 });
