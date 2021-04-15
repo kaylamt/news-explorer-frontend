@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   BrowserRouter, Switch,
 } from 'react-router-dom';
@@ -73,16 +73,17 @@ function App() {
     //       history.push('/signin');
     //     }, 2000);
     //   })
-    //   .catch((err) => {
-    //     setInfoTooltipType('error');
-    //     setInfoTooltipMessage('Oops, something went wrong! Please try again.');
-    //     console.log(err);
-    //   });
+
     mainApi.register(data)
       .then((res) => {
         closeAllPopups();
         setIsRegistrationPopupOpen(true);
-      })
+      }).catch((err) => {
+        // debugger
+        // setInfoTooltipType('error');
+        // setInfoTooltipMessage('Oops, something went wrong! Please try again.');
+        // console.log(err);
+      });
   }
 
   function loadArticles() {
@@ -121,32 +122,33 @@ function App() {
     setSearchArticles([]);
     setSearchQuery(query);
     localStorage.setItem('query', query);
-    localStorage.setItem('searchArticles', []);
   }
 
   function endSearch() {
     setSearching(false);
     setSearchAttempted(true);
-    localStorage.setItem('searchArticles', searchArticles);
   }
 
-  function parsedSearchArticles() {
-    if (searchArticles.length > 0) {
-      return searchArticles.map((article, index) => {
-        return {
-          keyword: searchQuery,
-          title: article.title,
-          text: article.description,
-          date: parseDate(article.publishedAt),
-          source: article.source.name,
-          link: article.url,
-          image: article.urlToImage,
-          _id: index
-        }
-      })
-    }
-    return [];
-  }
+  const parsedSearchArticles = useCallback(
+    () => {
+      if (searchArticles.length > 0) {
+        return searchArticles.map((article, index) => {
+          return {
+            keyword: searchQuery,
+            title: article.title,
+            text: article.description,
+            date: parseDate(article.publishedAt),
+            source: article.source.name,
+            link: article.url,
+            image: article.urlToImage,
+            _id: index
+          }
+        })
+      }
+      return [];
+    },
+    [searchArticles, searchQuery]
+  )
 
   function parseDate(string) {
     const part = string.split(/\D+/);
@@ -163,6 +165,17 @@ function App() {
         articles.push(savedArticle);
       }).catch((error) => console.log(error))
   }
+
+  React.useEffect(() => {
+    const cachedQuery = localStorage.getItem('query') || '';
+    const cachedSearchArticles = JSON.parse(localStorage.getItem('searchArticles')) || [];
+    setSearchArticles(cachedSearchArticles);
+    setSearchQuery(cachedQuery);
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('searchArticles', JSON.stringify(searchArticles));
+  }, [searchArticles]);
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -201,7 +214,7 @@ function App() {
         <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
         <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
         <Switch>
-          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} onSaveClick={handleSaveClick} openSignUpPopup={openSignUpPopup} />
+          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} onSaveClick={handleSaveClick} openSignUpPopup={openSignUpPopup} searchQuery={searchQuery} />
           <ProtectedRoute path='/saved-news' currentUser={currentUser} handleValidate={handleValidate} >
             <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} onDeleteArticleClick={handleArticleDelete} onSignOut={handleSignOut} />
           </ProtectedRoute>

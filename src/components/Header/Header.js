@@ -70,7 +70,7 @@ your search terms.</p>
           <p className="header__search-form-subtitle">
             Find the latest news on any topic and save them in your personal account.
         </p>
-          <SearchForm onSearch={handleSearch} />
+          <SearchForm onSearch={handleSearch} searchQuery={props.searchQuery} />
         </div>
       </div>
       {searchResults()}

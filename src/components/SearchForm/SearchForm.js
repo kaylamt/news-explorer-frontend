@@ -4,6 +4,10 @@ function SearchForm(props) {
 
   const [query, setQuery] = React.useState('');
 
+  React.useEffect(() => {
+    setQuery(props.searchQuery)
+  }, [props.searchQuery]);
+
   function handleQueryChange(e) {
     setQuery(e.target.value);
   }
