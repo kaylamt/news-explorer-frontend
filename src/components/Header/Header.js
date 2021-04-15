@@ -7,68 +7,21 @@ import notFound from '../../images/notFound.svg';
 
 function Header(props) {
 
-  const [articles, setArticles] = React.useState([]);
-  const [searchAttempted, setSearchAttempted] = React.useState(false);
-  const [searching, setSearching] = React.useState(false);
-
-
   function handleSearch(query) {
-    setSearching(true);
-    setSearchAttempted(false);
-
-    if (query === "Nature") {
-      setArticles([
-        {
-          keyword: "Nature",
-          title: "Everyone Needs a Special 'Sit Spot' in Nature",
-          text: "Ever since I read Richard Louv's influential book, \"Last Child in the Woods, \" the idea of having a special \"sit spot\" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...",
-          date: "November 4, 2020",
-          source: "treehugger",
-          link: "https://www.treehugger.com/special-sit-spot-nature-5085811",
-          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.dailycompass.org%2Fwp-content%2Fuploads%2F2012%2F07%2Fwoods.jpeg&f=1&nofb=1",
-          _id: 1,
-        },
-        {
-          keyword: "Nature",
-          title: "Nature makes you better",
-          text: "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves.",
-          date: "February 19, 2019",
-          source: "national geographic",
-          link: "https://www.nationalgeographic.com/travel/article/partner-content-nature-makes-you-better",
-          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fthewowstyle.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fnature-images..jpg&f=1&nofb=1",
-          _id: 2,
-        },
-        {
-          keyword: "Yellowstone",
-          title: "Nostalgic Photos of Tourists in U.S. National Parks",
-          text: "Uri Løvevild Golman and Helle Løvevild Golman are National Geographic Explorers and conservation photographers who just completed a project and book they call their love letter to...",
-          date: "October 19, 2020",
-          source: "national geographic",
-          link: "https://www.nationalgeographic.com/travel/article/sightseer-american-tourists-in-national-parks",
-          image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fphotographyblogger.net%2Fwp-content%2Fuploads%2F2017%2F07%2FYellowstone-Falls-%40dasuan.jpg&f=1&nofb=1",
-          _id: 3,
-        }
-      ])
-    } else {
-      setArticles([])
-    }
-    setTimeout(() => {
-      setSearching(false)
-      setSearchAttempted(true)
-    }, 1000);
+    props.onSearch(query);
   }
 
   function searchResults() {
-    if (articles.length > 0) {
+    if (props.articles.length > 0) {
       return (
         <div className="search-results">
-          <NewsCardList articles={articles} inSearchResults={true} />
+          <NewsCardList articles={props.articles} inSearchResults={true} />
           <div className="search-results__button-container">
             <button className="search-results__button">Show more</button>
           </div>
         </div>
       )
-    } else if (searchAttempted) {
+    } else if (props.searchAttempted) {
       return (
         <div className="search-not-found">
           <img className="search-not-found__image" src={notFound} alt="not-found"></img>
@@ -78,10 +31,10 @@ your search terms.</p>
         </div>
       )
     }
-    else if (searching) {
+    else if (props.searching) {
       return (
         <div className="preloader">
-          <Preloader isShown={searching} />
+          <Preloader isShown={props.searching} />
         </div>
       )
     }

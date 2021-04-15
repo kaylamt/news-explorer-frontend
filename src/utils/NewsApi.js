@@ -7,89 +7,37 @@ class NewsApi {
     this._headers = headers;
   }
 
-  getCardList() {
-    return fetch(`${this._baseUrl}/cards`, {
+  searchArticles(query) {
+    const today = new Date();
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    const params = {
+      q: query,
+      pageSize: 100,
+      to: today.toISOString(),
+      from: oneWeekAgo.toISOString()
+    }
+    const queryString = new URLSearchParams(params).toString();
+    return fetch(`${this._baseUrl}/everything?${queryString}`, {
       headers: this._headers,
     })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.statusText))));
   }
 
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
-
-  getArticleInfo() {
-    return Promise.all([this.getUserInfo(), this.getCardList()]);
-  }
-
-  addArticle({ source, title, date, description, image }) {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-      method: 'POST',
-      body: JSON.stringify({
-        source,
-        title,
-        date,
-        description,
-        image
-      }),
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
-
-  removeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      headers: this._headers,
-      method: 'DELETE',
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
-
-  changeLikeCardStatus(cardId, like) {
-    const method = like ? 'PUT' : 'DELETE';
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method,
-      headers: this._headers,
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
-
-  setUserInfo({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about,
-      }),
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
-
-  setUserAvatar(avatar) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar,
-      }),
-    })
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
-  }
 }
 
-const { NODE_ENV } = process.env;
-const baseUrl = NODE_ENV === 'production' ? 'https://api.kaylamt.students.nomoreparties.site' : 'http://localhost:3000';
+//don't hardcode API key
+// const { NEWS_API_KEY } = process.env;
+const NEWS_API_KEY = '042ef122ac7e4eda94ee496da2dc5b69';
+//CHANGE TO PROXY
+const baseUrl = 'https://newsapi.org/v2';
 
 const newsApi = new NewsApi({
   baseUrl,
   headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-Type': 'application/json',
+    authorization: `Bearer ${NEWS_API_KEY}`,
   },
 });
 
 export default newsApi;
+

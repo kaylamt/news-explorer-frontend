@@ -10,6 +10,7 @@ import RegistrationPopup from '../RegistrationPopup/RegistrationPopup';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import mainApi from '../../utils/MainApi';
+import newsApi from '../../utils/NewsApi';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
@@ -17,6 +18,10 @@ function App() {
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
+  const [searchArticles, setSearchArticles] = React.useState([]);
+  const [searchAttempted, setSearchAttempted] = React.useState(false);
+  const [searching, setSearching] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   function handleLogIn(data) {
     mainApi.authorize(data)
@@ -101,6 +106,56 @@ function App() {
     localStorage.removeItem('token');
   }
 
+  function handleSearch(query) {
+    startSearch(query);
+    newsApi.searchArticles(query)
+      .then((res) => {
+        setSearchArticles(res.articles);
+      }).catch((error) => console.log(error))
+      .finally(endSearch);
+  }
+
+  function startSearch(query) {
+    setSearching(true);
+    setSearchAttempted(false);
+    setSearchAttempted([]);
+    setSearchQuery(query);
+    localStorage.setItem('query', query);
+    localStorage.setItem('searchArticles', []);
+  }
+
+  function endSearch() {
+    setSearching(false);
+    setSearchAttempted(true);
+    localStorage.setItem('searchArticles', searchArticles);
+  }
+
+
+  function parsedSearchArticles() {
+    if (searchArticles.length > 0) {
+      return searchArticles.map((article, index) => {
+        return {
+          keyword: searchQuery,
+          title: article.title,
+          text: article.description,
+          date: parseDate(article.publishedAt),
+          source: article.source.name,
+          link: article.url,
+          image: article.urlToImage,
+          _id: index
+        }
+      })
+    }
+    return [];
+  }
+
+  function parseDate(string) {
+    const part = string.split(/\D+/);
+    const date = new Date(Date.UTC(part[0], --part[1], part[2], part[3], part[4], part[5], part[6]));
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options)
+  }
+
   React.useEffect(() => {
     const token = localStorage.getItem('token');
     if (!currentUser._id && token) {
@@ -138,7 +193,7 @@ function App() {
         <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
         <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
         <Switch>
-          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} />
+          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} />
           <ProtectedRoute path='/saved-news' currentUser={currentUser} handleValidate={handleValidate} >
             <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} onDeleteArticleClick={handleArticleDelete} onSignOut={handleSignOut} />
           </ProtectedRoute>

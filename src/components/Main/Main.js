@@ -8,7 +8,7 @@ function Main(props) {
 
   return (
     <>
-      <Header openSignInPopup={props.openSignInPopup} onSignOut={props.onSignOut} />
+      <Header openSignInPopup={props.openSignInPopup} onSignOut={props.onSignOut} onSearch={props.onSearch} searching={props.searching} searchAttempted={props.searchAttempted} articles={props.articles} />
       <About />
       <Footer />
     </>
