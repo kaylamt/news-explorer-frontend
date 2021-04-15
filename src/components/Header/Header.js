@@ -6,19 +6,38 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 import notFound from '../../images/notFound.svg';
 
 function Header(props) {
+  const [articleIndex, setArticleIndex] = React.useState(3);
+
 
   function handleSearch(query) {
+    setArticleIndex(3);
     props.onSearch(query);
+  }
+
+  function showMore() {
+    setArticleIndex(index => index + 3)
+  }
+
+  function hiddenArticles() {
+    return props.articles.slice(articleIndex);
+  }
+
+  function showMoreButton() {
+    if (hiddenArticles().length > 0) {
+      return (
+        <div className="search-results__button-container">
+          <button className="search-results__button" onClick={showMore} >Show more</button>
+        </div>
+      )
+    }
   }
 
   function searchResults() {
     if (props.articles.length > 0) {
       return (
         <div className="search-results">
-          <NewsCardList articles={props.articles} inSearchResults={true} />
-          <div className="search-results__button-container">
-            <button className="search-results__button">Show more</button>
-          </div>
+          <NewsCardList articles={props.articles.slice(0, articleIndex)} inSearchResults={true} onSaveClick={props.onSaveClick} openSignUpPopup={props.openSignUpPopup} />
+          {showMoreButton()}
         </div>
       )
     } else if (props.searchAttempted) {

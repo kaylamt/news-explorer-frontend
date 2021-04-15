@@ -117,6 +117,9 @@
   margin: 0 0 10px 0;
   width: 352px;
   height: 60px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .news-card__text-container {
@@ -141,9 +144,6 @@
   .news-card__title {
     width: 192px;
     height: 72px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 }
 
@@ -151,9 +151,6 @@
   .news-card__title {
     width: 175px;
     height: 72px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 
   .news-card__link {

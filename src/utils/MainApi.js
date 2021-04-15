@@ -14,6 +14,23 @@ class MainApi {
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
 
+  createArticle({ keyword, title, text, date, source, link, image }) {
+    return fetch(`${this._baseUrl}/api/articles`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        keyword,
+        title,
+        text,
+        date,
+        source,
+        link,
+        image,
+      })
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
+  }
+
   deleteArticle(articleId) {
     return fetch(`${this._baseUrl}/api/articles/${articleId}`, {
       method: 'DELETE',

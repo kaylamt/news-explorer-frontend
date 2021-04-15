@@ -118,7 +118,7 @@ function App() {
   function startSearch(query) {
     setSearching(true);
     setSearchAttempted(false);
-    setSearchAttempted([]);
+    setSearchArticles([]);
     setSearchQuery(query);
     localStorage.setItem('query', query);
     localStorage.setItem('searchArticles', []);
@@ -129,7 +129,6 @@ function App() {
     setSearchAttempted(true);
     localStorage.setItem('searchArticles', searchArticles);
   }
-
 
   function parsedSearchArticles() {
     if (searchArticles.length > 0) {
@@ -154,6 +153,15 @@ function App() {
     const date = new Date(Date.UTC(part[0], --part[1], part[2], part[3], part[4], part[5], part[6]));
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options)
+  }
+
+  function handleSaveClick(articleId) {
+    const parsedArticles = parsedSearchArticles();
+    const article = parsedArticles.find((a) => a._id === articleId);
+    mainApi.createArticle(article)
+      .then((savedArticle) => {
+        articles.push(savedArticle);
+      }).catch((error) => console.log(error))
   }
 
   React.useEffect(() => {
@@ -193,7 +201,7 @@ function App() {
         <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
         <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
         <Switch>
-          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} />
+          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} onSaveClick={handleSaveClick} openSignUpPopup={openSignUpPopup} />
           <ProtectedRoute path='/saved-news' currentUser={currentUser} handleValidate={handleValidate} >
             <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} onDeleteArticleClick={handleArticleDelete} onSignOut={handleSignOut} />
           </ProtectedRoute>

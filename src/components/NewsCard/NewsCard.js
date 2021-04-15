@@ -8,6 +8,12 @@ function NewsCard(props) {
     props.onDeleteArticleClick(props.article._id);
   }
 
+  function keywordLabel() {
+    if (!props.inSearchResults) {
+      <p className="news-card__keyword">{props.article.keyword}</p>
+    }
+  }
+
   function actionButton() {
     if (props.inSearchResults) {
       if (currentUser._id) {
@@ -35,14 +41,17 @@ function NewsCard(props) {
 
   function onSaveClick(e) {
     if (currentUser._id) {
+      props.onSaveClick(props.article._id);
       e.target.classList.toggle('news-card__button_active')
+    } else {
+      props.openSignUpPopup();
     }
   }
 
   return (
     <li className="news-card">
       <div className="news-card__image-info">
-        <p className="news-card__keyword">{props.article.keyword}</p>
+        {keywordLabel()}
         {actionButton()}
         <img className="news-card__image" alt={props.article.title} src={props.article.image} />
       </div>
