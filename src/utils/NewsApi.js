@@ -23,7 +23,6 @@ class NewsApi {
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.statusText))));
   }
-
 }
 
 //don't hardcode API key

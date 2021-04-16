@@ -8,7 +8,6 @@ import notFound from '../../images/notFound.svg';
 function Header(props) {
   const [articleIndex, setArticleIndex] = React.useState(3);
 
-
   function handleSearch(query) {
     setArticleIndex(3);
     props.onSearch(query);

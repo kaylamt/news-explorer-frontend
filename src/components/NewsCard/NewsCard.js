@@ -10,7 +10,9 @@ function NewsCard(props) {
 
   function keywordLabel() {
     if (!props.inSearchResults) {
-      <p className="news-card__keyword">{props.article.keyword}</p>
+      return (
+        <p className="news-card__keyword">{props.article.keyword}</p>
+      )
     }
   }
 

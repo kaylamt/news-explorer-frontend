@@ -7,7 +7,7 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onLogin(values, props.history);
+    props.onRegister(values);
   }
 
   function emailConflictText() {
@@ -19,15 +19,15 @@ function Register(props) {
   return (
     <PopupWithForm onSubmit={handleSubmit} onClose={props.closeAllPopups} isOpen={props.isSignUpPopupOpen} buttonText='Sign Up' onFormLinkClick={props.openSignInPopup} isValid={isValid} otherLink='Sign in' name='sign-up' title='Sign Up'>
       <p className="form__input-title">Email</p>
-      <input id="sign-upemail" type="email" value={values.email} onChange={handleChange} className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
+      <input id="sign-upemail" type="email" value={values.email} onChange={handleChange} className="form__input form__input_field_email" name="email" placeholder="Enter email" required />
       <span id="email-error" className="popup__error">{errors.email}</span>
       <p className="form__input-title">Password</p>
-      <input id="signup-password" type="password" value={values.password} onChange={handleChange} className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
+      <input id="signup-password" type="password" value={values.password} onChange={handleChange} className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={8} required />
       <span id="password-error" className="popup__error">{errors.password}</span>
       <p className="form__input-title">Username</p>
-      <input id="username" type="username" value={values.username} onChange={handleChange} className="form__input form__input_field_username" name="username" placeholder="Enter username" minLength={2} maxLength={200} required />
+      <input id="username" type="username" value={values.username} onChange={handleChange} className="form__input form__input_field_username" name="username" placeholder="Enter username" minLength={2} maxLength={30} required />
       <span id="username-error" className="popup__error">{errors.username}</span>
-      <span id="email-conflict-error" className="popup__error_conflict">{emailConflictText()}</span>
+      <span id="email-conflict-error" className="popup__error popup__error_conflict">{emailConflictText()}</span>
     </PopupWithForm>
   );
 }

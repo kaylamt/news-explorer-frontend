@@ -2,14 +2,20 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 class MainApi {
-  constructor({ baseUrl, headers }) {
+  constructor(baseUrl) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
+  }
+
+  headers() {
+    return {
+      authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    }
   }
 
   getArticles() {
     return fetch(`${this._baseUrl}/api/articles`, {
-      headers: this._headers,
+      headers: this.headers(),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
@@ -17,7 +23,7 @@ class MainApi {
   createArticle({ keyword, title, text, date, source, link, image }) {
     return fetch(`${this._baseUrl}/api/articles`, {
       method: 'POST',
-      headers: this._headers,
+      headers: this.headers(),
       body: JSON.stringify({
         keyword,
         title,
@@ -34,7 +40,7 @@ class MainApi {
   deleteArticle(articleId) {
     return fetch(`${this._baseUrl}/api/articles/${articleId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: this.headers(),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`error!${res.statusText}`))));
   }
@@ -80,16 +86,9 @@ class MainApi {
   }
 }
 
-
 const { NODE_ENV } = process.env;
 const baseUrl = NODE_ENV === 'production' ? 'https://api.kaylamt.students.nomoreparties.site' : 'http://localhost:3000';
 
-const mainApi = new MainApi({
-  baseUrl,
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-Type': 'application/json',
-  },
-});
+const mainApi = new MainApi(baseUrl);
 
 export default mainApi;

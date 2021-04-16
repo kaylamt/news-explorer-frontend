@@ -19,7 +19,7 @@ function SavedNews(props) {
   return (
     <>
       <SavedNewsHeader articleCount={props.articles.length} onSignOut={props.onSignOut} keywords={props.articles.map(a => a.keyword)} />
-      <NewsCardList articles={props.articles} onDeleteArticleClick={props.onDeleteArticleClick} />
+      <NewsCardList articles={props.articles} onDeleteArticleClick={props.onDeleteArticleClick} inSearchResults={false} />
       <Footer />
     </>
   );
