@@ -1,10 +1,9 @@
 const fetch = require('node-fetch');
-require('dotenv').config();
+const { REACT_APP_NEWS_API_KEY, NODE_ENV } = process.env;
 
 class NewsApi {
-  constructor({ baseUrl, headers }) {
+  constructor(baseUrl) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
   }
 
   searchArticles(query) {
@@ -15,28 +14,18 @@ class NewsApi {
       q: query,
       pageSize: 100,
       to: today.toISOString(),
-      from: oneWeekAgo.toISOString()
+      from: oneWeekAgo.toISOString(),
+      apiKey: REACT_APP_NEWS_API_KEY
     }
     const queryString = new URLSearchParams(params).toString();
-    return fetch(`${this._baseUrl}/everything?${queryString}`, {
-      headers: this._headers,
-    })
+    return fetch(`${this._baseUrl}/everything?${queryString}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.statusText))));
   }
 }
 
-//don't hardcode API key
-// const { NEWS_API_KEY } = process.env;
-const NEWS_API_KEY = '7a08f2c41cc54ee7b40098de540aaa46';
-//CHANGE TO PROXY
-const baseUrl = 'https://newsapi.org/v2';
+const baseUrl = NODE_ENV === 'production' ? 'https://nomoreparties.co/news/v2' : 'https://newsapi.org/v2';
 
-const newsApi = new NewsApi({
-  baseUrl,
-  headers: {
-    authorization: `Bearer ${NEWS_API_KEY}`,
-  },
-});
+const newsApi = new NewsApi(baseUrl);
 
 export default newsApi;
 

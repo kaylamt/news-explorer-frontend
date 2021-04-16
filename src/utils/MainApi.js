@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-require('dotenv').config();
 
 class MainApi {
   constructor(baseUrl) {
@@ -87,7 +86,7 @@ class MainApi {
 }
 
 const { NODE_ENV } = process.env;
-const baseUrl = NODE_ENV === 'production' ? 'https://api.kaylamt.students.nomoreparties.site' : 'http://localhost:3000';
+const baseUrl = NODE_ENV === 'production' ? 'https://kthomas.students.nomoreparties.site' : 'http://localhost:3000';
 
 const mainApi = new MainApi(baseUrl);
 
