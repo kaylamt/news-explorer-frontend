@@ -33,8 +33,8 @@ function App() {
             localStorage.setItem('token', login.token);
             closeAllPopups();
             setCurrentUser(user)
-          })
-      })
+          }).catch((error) => console.log(error));
+      }).catch((error) => console.log(error));
   }
 
   function handleValidate(token, history, path) {
@@ -43,7 +43,7 @@ function App() {
         .then((user) => {
           setCurrentUser(user)
           history.push(path)
-        })
+        }).catch((error) => console.log(error));
 
     } else {
       openSignInPopup()
@@ -68,14 +68,10 @@ function App() {
 
   function handleSignUp(data) {
     mainApi.register(data)
-      .then((res) => {
+      .then(() => {
         closeAllPopups();
         setIsRegistrationPopupOpen(true);
       }).catch((err) => {
-        // debugger
-        // setInfoTooltipType('error');
-        // setInfoTooltipMessage('Oops, something went wrong! Please try again.');
-        // console.log(err);
         if (err.message === 'Conflict') {
           setEmailConflict(true)
         }
@@ -102,6 +98,10 @@ function App() {
     history.push('/');
     setCurrentUser({});
     localStorage.removeItem('token');
+    localStorage.clear();
+    setSearchQuery('');
+    setSearchArticles([]);
+    setSearchAttempted(false);
   }
 
   function handleSearch(query) {
@@ -180,7 +180,7 @@ function App() {
       mainApi.validate(token)
         .then((user) => {
           setCurrentUser(user)
-        })
+        }).catch((error) => console.log(error));
     }
   }, [currentUser._id]);
 
