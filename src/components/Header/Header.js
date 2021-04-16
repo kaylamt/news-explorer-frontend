@@ -40,6 +40,13 @@ function Header(props) {
           {showMoreButton()}
         </div>
       )
+    } else if (props.searchError) {
+      return (
+        <div className="search-not-found">
+          <img className="search-not-found__image" src={notFound} alt="not-found"></img>
+          <p className="search-not-found__text">Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.</p>
+        </div>
+      )
     } else if (props.searchAttempted) {
       return (
         <div className="search-not-found">

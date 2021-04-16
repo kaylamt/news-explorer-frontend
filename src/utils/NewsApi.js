@@ -28,7 +28,7 @@ class NewsApi {
 
 //don't hardcode API key
 // const { NEWS_API_KEY } = process.env;
-const NEWS_API_KEY = '7a08f2c41cc54ee7b40098de540aaa46';
+const NEWS_API_KEY = '7a08f2c41cc54ee7b40098de540aaa4';
 //CHANGE TO PROXY
 const baseUrl = 'https://newsapi.org/v2';
 

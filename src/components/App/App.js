@@ -20,8 +20,10 @@ function App() {
   const [isRegistrationPopupOpen, setIsRegistrationPopupOpen] = React.useState(false);
   const [searchArticles, setSearchArticles] = React.useState([]);
   const [searchAttempted, setSearchAttempted] = React.useState(false);
+  const [searchError, setSearchError] = React.useState(false);
   const [searching, setSearching] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [emailConflict, setEmailConflict] = React.useState('');
 
   function handleLogIn(data) {
     mainApi.authorize(data)
@@ -65,15 +67,6 @@ function App() {
   }
 
   function handleSignUp(data) {
-    // auth.register(data)
-    //   .then(() => {
-    //     setInfoTooltipType('success');
-    //     setInfoTooltipMessage('Success! You have now been registered.');
-    //     setTimeout(() => {
-    //       history.push('/signin');
-    //     }, 2000);
-    //   })
-
     mainApi.register(data)
       .then((res) => {
         closeAllPopups();
@@ -83,6 +76,10 @@ function App() {
         // setInfoTooltipType('error');
         // setInfoTooltipMessage('Oops, something went wrong! Please try again.');
         // console.log(err);
+        if (err.message === 'Conflict') {
+          setEmailConflict(true)
+        }
+        console.log(err)
       });
   }
 
@@ -112,7 +109,7 @@ function App() {
     newsApi.searchArticles(query)
       .then((res) => {
         setSearchArticles(res.articles);
-      }).catch((error) => console.log(error))
+      }).catch(() => setSearchError(true))
       .finally(endSearch);
   }
 
@@ -211,10 +208,10 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter >
         <Login closeAllPopups={closeAllPopups} openSignUpPopup={openSignUpPopup} onLogin={handleLogIn} isSignInPopupOpen={isSignInPopupOpen} />
-        <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} />
+        <Register closeAllPopups={closeAllPopups} openSignInPopup={openSignInPopup} onRegister={handleSignUp} isSignUpPopupOpen={isSignUpPopupOpen} emailConflict={emailConflict} />
         <RegistrationPopup isOpen={isRegistrationPopupOpen} title="Registration successfully completed!" onFormLinkClick={openSignInPopup} onClose={closeAllPopups} />
         <Switch>
-          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} onSaveClick={handleSaveClick} openSignUpPopup={openSignUpPopup} searchQuery={searchQuery} />
+          <Main exact path='/' openSignInPopup={openSignInPopup} onSignOut={handleSignOut} onSearch={handleSearch} searching={searching} searchAttempted={searchAttempted} articles={parsedSearchArticles()} onSaveClick={handleSaveClick} openSignUpPopup={openSignUpPopup} searchQuery={searchQuery} searchError={searchError} />
           <ProtectedRoute path='/saved-news' currentUser={currentUser} handleValidate={handleValidate} >
             <SavedNews path='/saved-news' loadArticles={loadArticles} articles={articles} onDeleteArticleClick={handleArticleDelete} onSignOut={handleSignOut} />
           </ProtectedRoute>

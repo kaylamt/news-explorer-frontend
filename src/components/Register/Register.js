@@ -23,17 +23,24 @@ function Register(props) {
     props.onRegister({ email, password, username });
   }
 
+  function emailConflictText() {
+    if (props.emailConflict) {
+      return ("This email is not available")
+    } return ("")
+  }
+
   return (
     <PopupWithForm onSubmit={handleSubmit} onClose={props.closeAllPopups} isOpen={props.isSignUpPopupOpen} buttonText='Sign Up' onFormLinkClick={props.openSignInPopup} otherLink='Sign in' name='sign-up' title='Sign Up'>
       <p className="form__input-title">Email</p>
       <input id="email" type="email" value={email} onChange={handleEmailChange} className="form__input form__input_field_email" name="email" minLength={2} maxLength={40} placeholder="Enter email" required />
-      <span id="email-error" className="popup__error" />
+      <span id="email-error" className="popup__error"></span>
       <p className="form__input-title">Password</p>
       <input id="password" type="password" value={password} onChange={handlePasswordChange} className="form__input form__input_field_password" name="password" placeholder="Enter password" minLength={2} maxLength={200} required />
       <span id="password-error" className="popup__error" />
       <p className="form__input-title">Username</p>
       <input id="username" type="username" value={username} onChange={handleUsernameChange} className="form__input form__input_field_username" name="username" placeholder="Enter username" minLength={2} maxLength={200} required />
       <span id="username-error" className="popup__error" />
+      <span id="email-conflict-error" className="popup__error_conflict">{emailConflictText()}</span>
     </PopupWithForm>
   );
 }
